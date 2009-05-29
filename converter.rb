@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
 class Converter
+  def main()
+    0
+  end
+
   def parsed_line_from_raw_line(raw_line)
     parsed_line = {}
 
@@ -32,10 +36,6 @@ class Converter
     end
 
     return parsed_line
-  end
-
-  def main()
-    0
   end
 end
 
