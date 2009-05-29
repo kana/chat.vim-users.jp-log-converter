@@ -28,6 +28,10 @@ describe Converter, 'with a join message' do
   it 'should be type :join' do
     @parsed_line[:type].should == :join
   end
+
+  it 'should be nick "thinca"' do
+    @parsed_line[:nick].should == 'thinca'
+  end
 end
 
 describe Converter, 'with a normal message without specials' do
@@ -37,6 +41,10 @@ describe Converter, 'with a normal message without specials' do
 
   it 'should be type :msg' do
     @parsed_line[:type].should == :msg
+  end
+
+  it 'should be nick "kana"' do
+    @parsed_line[:nick].should == 'kana'
   end
 end
 
@@ -48,6 +56,10 @@ describe Converter, 'with a normal message with an image link' do
   it 'should be type :msg' do
     @parsed_line[:type].should == :msg
   end
+
+  it 'should be nick "kana"' do
+    @parsed_line[:nick].should == 'kana'
+  end
 end
 
 describe Converter, 'with a normal message with a normal link' do
@@ -57,6 +69,10 @@ describe Converter, 'with a normal message with a normal link' do
 
   it 'should be type :msg' do
     @parsed_line[:type].should == :msg
+  end
+
+  it 'should be nick "kana"' do
+    @parsed_line[:nick].should == 'kana'
   end
 end
 
@@ -68,6 +84,10 @@ describe Converter, 'with a normal message with a paste link' do
   it 'should be type :msg' do
     @parsed_line[:type].should == :msg
   end
+
+  it 'should be nick "Shougo"' do
+    @parsed_line[:nick].should == 'Shougo'
+  end
 end
 
 describe Converter, 'with a nick message' do
@@ -78,6 +98,12 @@ describe Converter, 'with a nick message' do
   it 'should be type :nick' do
     @parsed_line[:type].should == :nick
   end
+
+  it 'should be nick "ukstudio" -> "ukstudio_aw"' do
+    @parsed_line[:nick].should == 'ukstudio_aw'
+    @parsed_line[:old_nick].should == 'ukstudio'
+    @parsed_line[:new_nick].should == 'ukstudio_aw'
+  end
 end
 
 describe Converter, 'with a part message' do
@@ -87,6 +113,10 @@ describe Converter, 'with a part message' do
 
   it 'should be type :part' do
     @parsed_line[:type].should == :part
+  end
+
+  it 'should be nick "kana"' do
+    @parsed_line[:nick].should == 'kana'
   end
 end
 

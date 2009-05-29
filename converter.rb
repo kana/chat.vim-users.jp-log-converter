@@ -9,13 +9,23 @@ class Converter
     when nil then
       raise RuntimeError, 'Invalid raw_line'
     when '+' then
+      /^\S+ \+ (\S+) / =~ raw_line
       parsed_line[:type] = :join
+      parsed_line[:nick] = Regexp.last_match 1
     when '!' then
+      /^\S+ ! (\S+) / =~ raw_line
       parsed_line[:type] = :part
+      parsed_line[:nick] = Regexp.last_match 1
     when '<' then
+      /^\S+ <\S+:(\S+)> (.*)$/ =~ raw_line
       parsed_line[:type] = :msg
+      parsed_line[:nick] = Regexp.last_match 1
     else
+      /^\S+ (\S+) -> (\S+)/ =~ raw_line
       parsed_line[:type] = :nick
+      parsed_line[:old_nick] = Regexp.last_match 1
+      parsed_line[:new_nick] = Regexp.last_match 2
+      parsed_line[:nick] = Regexp.last_match 2
     end
 
     return parsed_line
