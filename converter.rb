@@ -18,8 +18,8 @@ class Converter
       /^\S+ ! (\S+) / =~ raw_line
       parsed_line[:type] = :part
       parsed_line[:nick] = Regexp.last_match 1
-    when '<' then
-      /^\S+ <\S+:(\S+)> (.*)$/ =~ raw_line
+    when '<', '>' then
+      /^\S+ [<>]\S+:(\S+)[<>] (.*)$/ =~ raw_line
       parsed_line[:type] = :msg
       parsed_line[:nick] = Regexp.last_match 1
       parsed_line[:text] = Regexp.last_match 2
