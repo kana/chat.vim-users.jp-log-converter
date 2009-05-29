@@ -12,6 +12,7 @@ RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK = '03:17:35 <#Vim-users.jp@freenode:kana> よ
 RAW_MSG_MESSAGE_WITH_A_PASTE_LINK = '14:28:59 <#Vim-users.jp@freenode:Shougo> http://gist.github.com/119798'
 RAW_NICK_MESSAGE = '09:34:25 ukstudio -> ukstudio_aw'
 RAW_PART_MESSAGE = '20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")'
+RAW_TOPIC_MESSAGE = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
 
 
 
@@ -200,6 +201,31 @@ describe Converter, 'with a part message' do  #{{{1
 
   it 'should have a valid time' do
     @parsed_line[:time].should == '20:02:15'
+  end
+end
+
+
+
+
+describe Converter, 'with a topic message' do  #{{{1
+  before do
+    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_TOPIC_MESSAGE
+  end
+
+  it 'should have a valid type' do
+    @parsed_line[:type].should == :topic
+  end
+
+  it 'should have a valid nick' do
+    @parsed_line[:nick].should == 'from_kyushu'
+  end
+
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '13:45:40'
+  end
+
+  it 'should have a valid topic' do
+    @parsed_line[:topic].should == 'ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
   end
 end
 
