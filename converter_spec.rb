@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
+# Misc. initialization  #{{{1
 
 require 'converter'
-
-
 
 
 RAW_JOIN_MESSAGE = '01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode'
@@ -17,11 +16,7 @@ RAW_PART_MESSAGE = '20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")'
 
 
 
-
-
-
-
-describe Converter, 'with a join message' do
+describe Converter, 'with a join message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_JOIN_MESSAGE
   end
@@ -39,7 +34,10 @@ describe Converter, 'with a join message' do
   end
 end
 
-describe Converter, 'with a normal message without specials' do
+
+
+
+describe Converter, 'with a normal message without specials' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITHOUT_SPECIALS
   end
@@ -61,7 +59,10 @@ describe Converter, 'with a normal message without specials' do
   end
 end
 
-describe Converter, 'with another normal message without specials' do
+
+
+
+describe Converter, 'with another normal message without specials' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
   end
@@ -83,7 +84,10 @@ describe Converter, 'with another normal message without specials' do
   end
 end
 
-describe Converter, 'with a normal message with an image link' do
+
+
+
+describe Converter, 'with a normal message with an image link' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK
   end
@@ -105,7 +109,10 @@ describe Converter, 'with a normal message with an image link' do
   end
 end
 
-describe Converter, 'with a normal message with a normal link' do
+
+
+
+describe Converter, 'with a normal message with a normal link' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
   end
@@ -127,7 +134,10 @@ describe Converter, 'with a normal message with a normal link' do
   end
 end
 
-describe Converter, 'with a normal message with a paste link' do
+
+
+
+describe Converter, 'with a normal message with a paste link' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
   end
@@ -149,7 +159,10 @@ describe Converter, 'with a normal message with a paste link' do
   end
 end
 
-describe Converter, 'with a nick message' do
+
+
+
+describe Converter, 'with a nick message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_NICK_MESSAGE
   end
@@ -169,7 +182,10 @@ describe Converter, 'with a nick message' do
   end
 end
 
-describe Converter, 'with a part message' do
+
+
+
+describe Converter, 'with a part message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_PART_MESSAGE
   end
@@ -187,4 +203,8 @@ describe Converter, 'with a part message' do
   end
 end
 
+
+
+
+# vim: set foldmethod=marker :  #{{{1
 __END__
