@@ -32,6 +32,10 @@ describe Converter, 'with a join message' do
   it 'should be nick "thinca"' do
     @parsed_line[:nick].should == 'thinca'
   end
+
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '01:09:27'
+  end
 end
 
 describe Converter, 'with a normal message without specials' do
@@ -45,6 +49,10 @@ describe Converter, 'with a normal message without specials' do
 
   it 'should be nick "kana"' do
     @parsed_line[:nick].should == 'kana'
+  end
+
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '03:17:42'
   end
 
   it 'should be text "やることやった感"' do
@@ -65,6 +73,10 @@ describe Converter, 'with a normal message with an image link' do
     @parsed_line[:nick].should == 'kana'
   end
 
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '03:22:04'
+  end
+
   it 'should be text "http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"' do
     @parsed_line[:text].should == 'http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png'
   end
@@ -83,6 +95,10 @@ describe Converter, 'with a normal message with a normal link' do
     @parsed_line[:nick].should == 'kana'
   end
 
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '03:17:35'
+  end
+
   it 'should be text "よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary"' do
     @parsed_line[:text].should == 'よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary'
   end
@@ -99,6 +115,10 @@ describe Converter, 'with a normal message with a paste link' do
 
   it 'should be nick "Shougo"' do
     @parsed_line[:nick].should == 'Shougo'
+  end
+
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '14:28:59'
   end
 
   it 'should be text "http://gist.github.com/119798"' do
@@ -120,6 +140,10 @@ describe Converter, 'with a nick message' do
     @parsed_line[:old_nick].should == 'ukstudio'
     @parsed_line[:new_nick].should == 'ukstudio_aw'
   end
+
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '09:34:25'
+  end
 end
 
 describe Converter, 'with a part message' do
@@ -133,6 +157,10 @@ describe Converter, 'with a part message' do
 
   it 'should be nick "kana"' do
     @parsed_line[:nick].should == 'kana'
+  end
+
+  it 'should have a valid time' do
+    @parsed_line[:time].should == '20:02:15'
   end
 end
 

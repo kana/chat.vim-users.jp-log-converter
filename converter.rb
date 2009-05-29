@@ -5,6 +5,8 @@ class Converter
     parsed_line = {}
 
     /^(\d\d:\d\d:\d\d) (.)(.*)$/ =~ raw_line
+    parsed_line[:time] = Regexp.last_match 1
+
     case Regexp.last_match 2
     when nil then
       raise RuntimeError, 'Invalid raw_line'
