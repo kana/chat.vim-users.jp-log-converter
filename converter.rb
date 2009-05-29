@@ -20,6 +20,7 @@ class Converter
       /^\S+ <\S+:(\S+)> (.*)$/ =~ raw_line
       parsed_line[:type] = :msg
       parsed_line[:nick] = Regexp.last_match 1
+      parsed_line[:text] = Regexp.last_match 2
     else
       /^\S+ (\S+) -> (\S+)/ =~ raw_line
       parsed_line[:type] = :nick

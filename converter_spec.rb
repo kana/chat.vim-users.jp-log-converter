@@ -46,6 +46,10 @@ describe Converter, 'with a normal message without specials' do
   it 'should be nick "kana"' do
     @parsed_line[:nick].should == 'kana'
   end
+
+  it 'should be text "やることやった感"' do
+    @parsed_line[:text].should == 'やることやった感'
+  end
 end
 
 describe Converter, 'with a normal message with an image link' do
@@ -59,6 +63,10 @@ describe Converter, 'with a normal message with an image link' do
 
   it 'should be nick "kana"' do
     @parsed_line[:nick].should == 'kana'
+  end
+
+  it 'should be text "http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"' do
+    @parsed_line[:text].should == 'http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png'
   end
 end
 
@@ -74,6 +82,10 @@ describe Converter, 'with a normal message with a normal link' do
   it 'should be nick "kana"' do
     @parsed_line[:nick].should == 'kana'
   end
+
+  it 'should be text "よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary"' do
+    @parsed_line[:text].should == 'よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary'
+  end
 end
 
 describe Converter, 'with a normal message with a paste link' do
@@ -87,6 +99,10 @@ describe Converter, 'with a normal message with a paste link' do
 
   it 'should be nick "Shougo"' do
     @parsed_line[:nick].should == 'Shougo'
+  end
+
+  it 'should be text "http://gist.github.com/119798"' do
+    @parsed_line[:text].should == 'http://gist.github.com/119798'
   end
 end
 
