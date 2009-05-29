@@ -266,5 +266,34 @@ end
 
 
 
+describe Converter, 'main without any argument' do  #{{{1
+  it 'should output usage message' do
+    Converter.new.main([]).should == 1
+    # FIXME: Check the output
+  end
+end
+
+
+
+
+describe Converter, 'main with a valid argument' do  #{{{1
+  it 'should return 0' do
+    Converter.new.main(['2009-05-30']).should == 0
+  end
+end
+
+
+
+
+describe Converter, 'main with an invalid argument' do  #{{{1
+  it 'should return 1' do
+    Converter.new.main(['XXXX-YY-ZZ']).should == 1
+    # FIXME: Check the output
+  end
+end
+
+
+
+
 # vim: set foldmethod=marker :  #{{{1
 __END__

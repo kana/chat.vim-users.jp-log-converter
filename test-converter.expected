@@ -1,4 +1,6 @@
-.....................................
+.....................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
+..Invalid date: XXXX-YY-ZZ
+.
 
 
-37 examples, 0 failures
+40 examples, 0 failures

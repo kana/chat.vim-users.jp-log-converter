@@ -1,8 +1,18 @@
 #!/usr/bin/env ruby
 
 class Converter
-  def main()
-    0
+  def main(args)
+    if args.size != 1
+      return usage
+    end
+
+    date = args[0]
+    unless /^\d\d\d\d-\d\d-\d\d$/ =~ date
+      print "Invalid date: #{args[0]}\n"
+      return 1
+    end
+
+    return 0
   end
 
   def parsed_line_from_raw_line(raw_line)
@@ -46,13 +56,18 @@ class Converter
 
     return parsed_line
   end
+
+  def usage()
+    print "Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}\n"
+    return 1
+  end
 end
 
 
 
 
 if __FILE__ == $0
-  exit Converter.new.main
+  exit Converter.new.main ARGV
 end
 
 __END__
