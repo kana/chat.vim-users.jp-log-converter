@@ -232,5 +232,39 @@ end
 
 
 
+describe Converter, 'with an invalid message' do  #{{{1
+  before do
+    @parsed_line = Converter.new.parsed_line_from_raw_line 'foo bar baz'
+  end
+
+  it 'should have a valid type' do
+    @parsed_line[:type].should == :invalid
+  end
+
+  it 'should have the original value' do
+    @parsed_line[:original].should == 'foo bar baz'
+  end
+end
+
+
+
+
+describe Converter, 'with another invalid message' do  #{{{1
+  before do
+    @parsed_line = Converter.new.parsed_line_from_raw_line '00:01:02 Xyzzy'
+  end
+
+  it 'should have a valid type' do
+    @parsed_line[:type].should == :invalid
+  end
+
+  it 'should have the original value' do
+    @parsed_line[:original].should == '00:01:02 Xyzzy'
+  end
+end
+
+
+
+
 # vim: set foldmethod=marker :  #{{{1
 __END__
