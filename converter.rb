@@ -14,11 +14,7 @@ class Converter
   TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>'
   TEMPLATE_JOIN_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has joined</span>'
   TEMPLATE_NICK_CONTENT = '<span class="time">%s</span> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
-  TEMPLATE_MSG_CONTENT = <<-'END'
-    <span class="time">%s</span>
-    <span class="nick">%s</span>
-    <span class="text">%s</span>
-  END
+  TEMPLATE_MSG_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">%s</span>'
   TEMPLATE_PART_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has left</span>'
   TEMPLATE_TOPIC_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
 
@@ -51,6 +47,18 @@ class Converter
         pline[:time],
         sanitize(pline[:old_nick]),
         sanitize(pline[:new_nick])
+      ]
+    ]
+  end
+
+  def cline_of_msg_from_pline(pline, line_number)
+    return TEMPLATE_LINE % [
+      line_number,
+      pline[:type],
+      TEMPLATE_MSG_CONTENT % [
+        pline[:time],
+        sanitize(pline[:nick]),
+        sanitize(pline[:text]),
       ]
     ]
   end

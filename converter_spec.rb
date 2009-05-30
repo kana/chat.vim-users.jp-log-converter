@@ -76,6 +76,18 @@ end
 
 
 
+describe Converter, 'converting a normal message without specials' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS
+    cline = c.cline_of_msg_from_pline pline, 5
+    cline.should == '<li id="L5" class="msg"><span class="time">03:17:42</span> <span class="nick">kana</span> <span class="text">やることやった感</span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing another normal message without specials' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
@@ -95,6 +107,18 @@ describe Converter, 'parsing another normal message without specials' do  #{{{1
 
   it 'should have a valid text' do
     @pline[:text].should == 'gyazoみたく簡単にできれば良いのだけども'
+  end
+end
+
+
+
+
+describe Converter, 'converting another normal message without specials' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
+    cline = c.cline_of_msg_from_pline pline, 6
+    cline.should == '<li id="L6" class="msg"><span class="time">14:00:37</span> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>'
   end
 end
 
@@ -126,6 +150,18 @@ end
 
 
 
+describe Converter, 'converting a normal message with an image link' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK
+    cline = c.cline_of_msg_from_pline pline, 7
+    cline.should == '<li id="L7" class="msg"><span class="time">03:22:04</span> <span class="nick">kana</span> <span class="text">http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png</span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing a normal message with a normal link' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
@@ -151,6 +187,18 @@ end
 
 
 
+describe Converter, 'converting a normal message with a normal link' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
+    cline = c.cline_of_msg_from_pline pline, 8
+    cline.should == '<li id="L8" class="msg"><span class="time">03:17:35</span> <span class="nick">kana</span> <span class="text">よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary</span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing a normal message with a paste link' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
@@ -170,6 +218,18 @@ describe Converter, 'parsing a normal message with a paste link' do  #{{{1
 
   it 'should have a valid text' do
     @pline[:text].should == 'http://gist.github.com/119798'
+  end
+end
+
+
+
+
+describe Converter, 'converting a normal message with a paste link' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
+    cline = c.cline_of_msg_from_pline pline, 9
+    cline.should == '<li id="L9" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text">http://gist.github.com/119798</span></li>'
   end
 end
 
