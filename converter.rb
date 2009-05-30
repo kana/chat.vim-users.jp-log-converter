@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
 class Converter
+  def convert(input_stream)
+    puts 'dummy'
+  end
+
   def main(args)
     if args.size != 1
       return usage
@@ -11,6 +15,8 @@ class Converter
       $stderr.puts "Invalid date: #{args[0]}"
       return 1
     end
+
+    convert $stdin
 
     return 0
   end
