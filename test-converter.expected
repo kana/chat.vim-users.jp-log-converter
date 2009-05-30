@@ -1,4 +1,4 @@
-..............................................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
+...............................................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
 .<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
@@ -12,10 +12,10 @@
 <ul class="log">
 <li id="L1" class="invalid"><span class="text">Invalid format</span></li>
 <li id="L2" class="join"><span class="time">01:09:27</span> <span class="nick">thinca</span> <span class="text">has joined</span></li>
-<li id="L3" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">foo <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a> bar <a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a> baz <a href="http://gist.github.com/119798">http://gist.github.com/119798</a> hehehe</span></li>
+<li id="L3" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">foo <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a> bar <a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a> baz <a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script> hehehe</span></li>
 <li id="L4" class="msg"><span class="time">03:22:04</span> <span class="nick">kana</span> <span class="text"><a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a></span></li>
 <li id="L5" class="msg"><span class="time">03:17:35</span> <span class="nick">kana</span> <span class="text">よし寝る <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a></span></li>
-<li id="L6" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text"><a href="http://gist.github.com/119798">http://gist.github.com/119798</a></span></li>
+<li id="L6" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text"><a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script></span></li>
 <li id="L7" class="msg"><span class="time">03:17:42</span> <span class="nick">kana</span> <span class="text">やることやった感</span></li>
 <li id="L8" class="msg"><span class="time">14:00:37</span> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>
 <li id="L9" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&#39;</span></li>
@@ -29,4 +29,4 @@
 ..
 
 
-65 examples, 0 failures
+66 examples, 0 failures

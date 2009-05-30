@@ -159,9 +159,11 @@ class Converter
 
   def make_neat_links_in(sanitized_string)
     return sanitized_string.gsub(URI.regexp ['http']) { |uri|
-      # FIXME: translate a link to a paste service
+      # FIXME: Support other paste services.
       if uri_image_p uri
         '<a href="%s"><img src="%s" alt="%s"/></a>' % [uri, uri, uri]
+      elsif /^http:\/\/gist\.github\.com\/(\d+)$/ =~ uri
+        '<a href="%s">%s</a><script src="%s.js" type="text/javascript"></script>' % [uri, uri, uri]
       else
         '<a href="%s">%s</a>' % [uri, uri]
       end
