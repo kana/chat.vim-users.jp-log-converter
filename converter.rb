@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
+# Prefix  Meaning
+# ------  -------
+# rline   raw line
+# pline   parsed line
+# cline   converted line
 
 require 'cgi'
 
@@ -37,8 +42,8 @@ class Converter
   def convert(input_stream)
     yield generate_header
 
-    input_stream.lines.each_with_index do |raw_line, line_number|
-      yield "#{raw_line}#{line_number}\n"
+    input_stream.lines.each_with_index do |rline, line_number|
+      yield "#{rline}#{line_number}\n"
     end
 
     yield generate_footer
@@ -81,42 +86,42 @@ class Converter
     return 0
   end
 
-  def parsed_line_from_raw_line(raw_line)
+  def parsed_line_from_rline(rline)
     parsed_line = {}
 
-    /^(\d\d:\d\d:\d\d) (.)/ =~ raw_line
+    /^(\d\d:\d\d:\d\d) (.)/ =~ rline
     parsed_line[:time] = Regexp.last_match 1
 
     case Regexp.last_match 2
     when nil then
       parsed_line[:type] = :invalid
-      parsed_line[:original] = raw_line
+      parsed_line[:original] = rline
     when '+' then
-      /^\S+ \+ (\S+) / =~ raw_line
+      /^\S+ \+ (\S+) / =~ rline
       parsed_line[:type] = :join
       parsed_line[:nick] = Regexp.last_match 1
     when '!' then
-      /^\S+ ! (\S+) / =~ raw_line
+      /^\S+ ! (\S+) / =~ rline
       parsed_line[:type] = :part
       parsed_line[:nick] = Regexp.last_match 1
     when '<', '>' then
-      /^\S+ [<>]\S+:(\S+)[<>] (.*)$/ =~ raw_line
+      /^\S+ [<>]\S+:(\S+)[<>] (.*)$/ =~ rline
       parsed_line[:type] = :msg
       parsed_line[:nick] = Regexp.last_match 1
       parsed_line[:text] = Regexp.last_match 2
     else
-      if /^\S+ (\S+) -> (\S+)/ =~ raw_line
+      if /^\S+ (\S+) -> (\S+)/ =~ rline
         parsed_line[:type] = :nick
         parsed_line[:old_nick] = Regexp.last_match 1
         parsed_line[:new_nick] = Regexp.last_match 2
         parsed_line[:nick] = Regexp.last_match 2
-      elsif /^\S+ Topic of channel #\S+@\S+ by (\S+): (.*)$/ =~ raw_line
+      elsif /^\S+ Topic of channel #\S+@\S+ by (\S+): (.*)$/ =~ rline
         parsed_line[:type] = :topic
         parsed_line[:nick] = Regexp.last_match 1
         parsed_line[:topic] = Regexp.last_match 2
       else
         parsed_line[:type] = :invalid
-        parsed_line[:original] = raw_line
+        parsed_line[:original] = rline
       end
     end
 

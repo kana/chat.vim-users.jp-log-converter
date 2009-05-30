@@ -20,7 +20,7 @@ RAW_TOPIC_MESSAGE = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_ky
 
 describe Converter, 'parsing a join message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_JOIN_MESSAGE
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_JOIN_MESSAGE
   end
 
   it 'should have a valid type' do
@@ -42,7 +42,7 @@ end
 describe Converter, 'converting a join message' do  #{{{1
   it 'should convert the line nicely' do
     c = Converter.new
-    parsed_line = c.parsed_line_from_raw_line RAW_JOIN_MESSAGE
+    parsed_line = c.parsed_line_from_rline RAW_JOIN_MESSAGE
     converted_line = c.converted_line_of_join_from_parsed_line parsed_line, 1
     converted_line.should == '<li id="L1" class="join"><span class="time">01:09:27</span> <span class="nick">thinca</span> <span class="text">has joined</span></li>'
   end
@@ -53,7 +53,7 @@ end
 
 describe Converter, 'parsing a normal message without specials' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITHOUT_SPECIALS
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS
   end
 
   it 'should have a valid type' do
@@ -78,7 +78,7 @@ end
 
 describe Converter, 'parsing another normal message without specials' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
   end
 
   it 'should have a valid type' do
@@ -103,7 +103,7 @@ end
 
 describe Converter, 'parsing a normal message with an image link' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK
   end
 
   it 'should have a valid type' do
@@ -128,7 +128,7 @@ end
 
 describe Converter, 'parsing a normal message with a normal link' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
   end
 
   it 'should have a valid type' do
@@ -153,7 +153,7 @@ end
 
 describe Converter, 'parsing a normal message with a paste link' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
   end
 
   it 'should have a valid type' do
@@ -178,7 +178,7 @@ end
 
 describe Converter, 'parsing a nick message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_NICK_MESSAGE
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_NICK_MESSAGE
   end
 
   it 'should have a valid type' do
@@ -201,7 +201,7 @@ end
 
 describe Converter, 'parsing a part message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_PART_MESSAGE
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_PART_MESSAGE
   end
 
   it 'should have a valid type' do
@@ -222,7 +222,7 @@ end
 
 describe Converter, 'parsing a topic message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line RAW_TOPIC_MESSAGE
+    @parsed_line = Converter.new.parsed_line_from_rline RAW_TOPIC_MESSAGE
   end
 
   it 'should have a valid type' do
@@ -247,7 +247,7 @@ end
 
 describe Converter, 'parsing an invalid message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line 'foo bar baz'
+    @parsed_line = Converter.new.parsed_line_from_rline 'foo bar baz'
   end
 
   it 'should have a valid type' do
@@ -264,7 +264,7 @@ end
 
 describe Converter, 'parsing another invalid message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_raw_line '00:01:02 Xyzzy'
+    @parsed_line = Converter.new.parsed_line_from_rline '00:01:02 Xyzzy'
   end
 
   it 'should have a valid type' do
