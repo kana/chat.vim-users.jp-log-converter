@@ -5,8 +5,7 @@ require 'converter'
 require 'stringio'
 
 
-RLINE_INVALID = '00:01:02 Invalid format'
-RLINE_INVALID2 = 'Invalid format mk2'
+RLINE_INVALID = 'Invalid format'
 RLINE_JOIN = '01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode'
 RLINE_MSG_LINK_IMAGE = '03:22:04 <#Vim-users.jp@freenode:kana> http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png'
 RLINE_MSG_LINK_NORMAL = '03:17:35 <#Vim-users.jp@freenode:kana> よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary'
@@ -16,6 +15,7 @@ RLINE_MSG_NORMAL2 = '14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみた�
 RLINE_NICK = '09:34:25 ukstudio -> ukstudio_aw'
 RLINE_PART = '20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")'
 RLINE_TOPIC = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
+RLINE_UNSUPPORTED = '00:01:02 Unsupported format'
 
 
 
@@ -343,6 +343,39 @@ end
 
 
 
+describe Converter, 'parsing an unsupported message' do  #{{{1
+  before do
+    @pline = Converter.new.pline_from_rline RLINE_UNSUPPORTED
+  end
+
+  it 'should have a valid type' do
+    @pline[:type].should == :unsupported
+  end
+
+  it 'should have a valid time' do
+    @pline[:time].should == '00:01:02'
+  end
+
+  it 'should have the original message' do
+    @pline[:message].should == 'Unsupported format'
+  end
+end
+
+
+
+
+describe Converter, 'converting an unsuported message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RLINE_UNSUPPORTED
+    cline = c.cline_of_unsupported_from_pline pline, 10
+    cline.should == '<li id="L10" class="unsupported"><span class="time">00:01:02</span> <span class="text">Unsupported format</span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing an invalid message' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RLINE_INVALID
@@ -365,36 +398,7 @@ describe Converter, 'converting an invalid message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_INVALID
     cline = c.cline_of_invalid_from_pline pline, 10
-    cline.should == '<li id="L10" class="invalid"><span class="text">00:01:02 Invalid format</span></li>'
-  end
-end
-
-
-
-
-describe Converter, 'parsing another invalid message' do  #{{{1
-  before do
-    @pline = Converter.new.pline_from_rline RLINE_INVALID2
-  end
-
-  it 'should have a valid type' do
-    @pline[:type].should == :invalid
-  end
-
-  it 'should have the original value' do
-    @pline[:original].should == RLINE_INVALID2
-  end
-end
-
-
-
-
-describe Converter, 'converting another invalid message' do  #{{{1
-  it 'should convert the line nicely' do
-    c = Converter.new
-    pline = c.pline_from_rline RLINE_INVALID2
-    cline = c.cline_of_invalid_from_pline pline, 10
-    cline.should == '<li id="L10" class="invalid"><span class="text">Invalid format mk2</span></li>'
+    cline.should == '<li id="L10" class="invalid"><span class="text">Invalid format</span></li>'
   end
 end
 

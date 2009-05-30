@@ -19,6 +19,7 @@ class Converter
   TEMPLATE_NICK_CONTENT = '<span class="time">%s</span> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
   TEMPLATE_PART_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has left</span>'
   TEMPLATE_TOPIC_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
+  TEMPLATE_UNSUPPORTED_CONTENT = '<span class="time">%s</span> <span class="text">%s</span>'
 
   def cline_of_invalid_from_pline(pline, line_number)
     return TEMPLATE_LINE % [
@@ -84,6 +85,17 @@ class Converter
         pline[:time],
         sanitize(pline[:nick]),
         sanitize(pline[:topic]),
+      ]
+    ]
+  end
+
+  def cline_of_unsupported_from_pline(pline, line_number)
+    return TEMPLATE_LINE % [
+      line_number,
+      pline[:type],
+      TEMPLATE_UNSUPPORTED_CONTENT % [
+        pline[:time],
+        sanitize(pline[:message])
       ]
     ]
   end
@@ -158,8 +170,9 @@ class Converter
         pline[:nick] = Regexp.last_match 1
         pline[:topic] = Regexp.last_match 2
       else
-        pline[:type] = :invalid
-        pline[:original] = rline
+        /^\S+\s+(.*)$/ =~ rline
+        pline[:type] = :unsupported
+        pline[:message] = Regexp.last_match 1
       end
     end
 
