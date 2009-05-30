@@ -2,13 +2,13 @@
 
 class Converter
   def convert(input_stream)
-    print generate_header
+    yield generate_header
 
     input_stream.lines.each_with_index do |raw_line, line_number|
-      puts raw_line, line_number
+      yield "#{raw_line}#{line_number}\n"
     end
 
-    print generate_footer
+    yield generate_footer
   end
 
   def generate_header()
@@ -30,7 +30,9 @@ class Converter
       return 1
     end
 
-    convert $stdin
+    convert $stdin do |line|
+      print line
+    end
 
     return 0
   end

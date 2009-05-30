@@ -289,7 +289,8 @@ describe Converter, 'main with a valid argument' do  #{{{1
         RAW_MSG_MESSAGE_WITH_A_PASTE_LINK,
         RAW_NICK_MESSAGE,
         RAW_PART_MESSAGE,
-        RAW_TOPIC_MESSAGE
+        RAW_TOPIC_MESSAGE,
+        ''
       ].join("\n")
       Converter.new.main(['2009-05-30']).should == 0
     $stdin = original_stdin
