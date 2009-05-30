@@ -79,14 +79,13 @@ class Converter
   end
 
   def cline_of_topic_from_pline(pline, line_number)
-    # FIXME: Expand each link in :topic
     return TEMPLATE_LINE % [
       line_number,
       pline[:type],
       TEMPLATE_TOPIC_CONTENT % [
         pline[:time],
         sanitize(pline[:nick]),
-        sanitize(pline[:topic]),
+        make_simple_links_in(sanitize pline[:topic]),
       ]
     ]
   end
@@ -156,6 +155,10 @@ class Converter
     end
 
     return 0
+  end
+
+  def make_simple_links_in(sanitized_string)  # FIXME: NIY
+    return sanitized_string
   end
 
   def pline_from_rline(rline)
