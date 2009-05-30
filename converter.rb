@@ -157,8 +157,10 @@ class Converter
     return 0
   end
 
-  def make_neat_links_in(sanitized_string)  # FIXME: NIY
-    return sanitized_string
+  def make_neat_links_in(sanitized_string)  # FIXME: NIY - neat stuffs
+    return sanitized_string.gsub(URI.regexp) { |uri|
+      '<a href="%s">%s</a>' % [uri, uri]
+    }
   end
 
   def make_simple_links_in(sanitized_string)

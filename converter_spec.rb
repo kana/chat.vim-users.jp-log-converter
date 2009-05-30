@@ -34,6 +34,21 @@ end
 
 
 
+describe Converter, 'translating uris, neat style' do  #{{{1
+  before do
+    @c = Converter.new
+  end
+
+  it 'should translate simple uris into html links' do
+    sanitized_s = @c.sanitize 'foo http://example.com/ bar http://example.net/'
+    translated_s = @c.make_neat_links_in sanitized_s
+    translated_s.should == 'foo <a href="http://example.com/">http://example.com/</a> bar <a href="http://example.net/">http://example.net/</a>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing a join message' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RLINE_JOIN
@@ -208,7 +223,7 @@ describe Converter, 'converting a normal message with an image link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_IMAGE
     cline = c.cline_of_msg_from_pline pline, 7
-    cline.should == '<li id="L7" class="msg"><span class="time">03:22:04</span> <span class="nick">kana</span> <span class="text">http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png</span></li>' + "\n"
+    cline.should == '<li id="L7" class="msg"><span class="time">03:22:04</span> <span class="nick">kana</span> <span class="text"><a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png">http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png</a></span></li>' + "\n"
   end
 end
 
@@ -245,7 +260,7 @@ describe Converter, 'converting a normal message with a normal link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_NORMAL
     cline = c.cline_of_msg_from_pline pline, 8
-    cline.should == '<li id="L8" class="msg"><span class="time">03:17:35</span> <span class="nick">kana</span> <span class="text">よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary</span></li>' + "\n"
+    cline.should == '<li id="L8" class="msg"><span class="time">03:17:35</span> <span class="nick">kana</span> <span class="text">よし寝る <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a></span></li>' + "\n"
   end
 end
 
@@ -282,7 +297,7 @@ describe Converter, 'converting a normal message with a paste link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_PASTE
     cline = c.cline_of_msg_from_pline pline, 9
-    cline.should == '<li id="L9" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text">http://gist.github.com/119798</span></li>' + "\n"
+    cline.should == '<li id="L9" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text"><a href="http://gist.github.com/119798">http://gist.github.com/119798</a></span></li>' + "\n"
   end
 end
 
@@ -319,7 +334,7 @@ describe Converter, 'converting a normal message with multiple links' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_ALL_TYPES
     cline = c.cline_of_msg_from_pline pline, 11
-    cline.should == '<li id="L11" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">foo http://whileimautomaton.net/2009/05/29/02/37/54/diary bar http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png baz http://gist.github.com/119798 hehehe</span></li>' + "\n"
+    cline.should == '<li id="L11" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">foo <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a> bar <a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png">http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png</a> baz <a href="http://gist.github.com/119798">http://gist.github.com/119798</a> hehehe</span></li>' + "\n"
   end
 end
 
