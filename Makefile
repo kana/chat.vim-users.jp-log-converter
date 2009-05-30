@@ -1,7 +1,7 @@
 # Requirements: GNU make
 
 all: test
-.PHONY: accept-test-result all test
+.PHONY: accept-test-result all push test
 .DELETE_ON_ERROR:
 
 test: test-converter.ok test-output.ok
@@ -22,5 +22,17 @@ test-output.html: converter.rb test-log.txt
 
 accept-test-result:
 	cp test-converter.output test-converter.expected
+
+push:
+	rm -f index.html
+	$(MAKE) test-output.html
+	cp test-output.html index.html
+	git add index.html
+	git commit -m \
+	"Reflect changes to $$(date '+%Y-%m-%d %H:%M:%S %Z')"$$'\n'\
+	$$'\n'\
+	"master $$(git rev-parse master)"$$'\n'\
+	"gh-pages $$(git rev-parse HEAD)"
+	git push github gh-pages
 
 # __END__
