@@ -1,4 +1,4 @@
-...........................................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
+............................................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
 .<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
@@ -21,7 +21,7 @@
 <li id="L9" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&#39;</span></li>
 <li id="L10" class="nick"><span class="time">09:34:25</span> <span class="text"><span class="old-nick">ukstudio</span> is now as known as <span class="new-nick">ukstudio_aw</span></span></li>
 <li id="L11" class="part"><span class="time">20:02:15</span> <span class="nick">kana</span> <span class="text">has left</span></li>
-<li id="L12" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.</span></span></li>
+<li id="L12" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 <a href="http://chat.vim-users.jp/">http://chat.vim-users.jp/</a> for true vim users and not true vim users.</span></span></li>
 <li id="L13" class="unsupported"><span class="time">00:01:02</span> <span class="text">Unsupported format</span></li>
 </ul>
 </body>
@@ -29,4 +29,4 @@
 ..
 
 
-62 examples, 0 failures
+63 examples, 0 failures

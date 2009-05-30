@@ -6,6 +6,7 @@
 # cline   converted line
 
 require 'cgi'
+require 'uri'
 
 
 
@@ -160,8 +161,10 @@ class Converter
     return sanitized_string
   end
 
-  def make_simple_links_in(sanitized_string)  # FIXME: NIY
-    return sanitized_string
+  def make_simple_links_in(sanitized_string)
+    return sanitized_string.gsub(URI.regexp) { |uri|
+      '<a href="%s">%s</a>' % [uri, uri]
+    }
   end
 
   def pline_from_rline(rline)

@@ -22,6 +22,18 @@ RLINE_UNSUPPORTED = '00:01:02 Unsupported format'
 
 
 
+describe Converter, 'translating uris, simple style' do  #{{{1
+  it 'should translate uris into html links' do
+    c = Converter.new
+    sanitized_s = c.sanitize 'foo http://example.com/ bar http://example.net/'
+    translated_s = c.make_simple_links_in sanitized_s
+    translated_s.should == 'foo <a href="http://example.com/">http://example.com/</a> bar <a href="http://example.net/">http://example.net/</a>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing a join message' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RLINE_JOIN
@@ -412,7 +424,7 @@ describe Converter, 'converting a topic message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_TOPIC
     cline = c.cline_of_topic_from_pline pline, 4
-    cline.should == '<li id="L4" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.</span></span></li>' + "\n"
+    cline.should == '<li id="L4" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 <a href="http://chat.vim-users.jp/">http://chat.vim-users.jp/</a> for true vim users and not true vim users.</span></span></li>' + "\n"
   end
 end
 
