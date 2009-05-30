@@ -20,16 +20,6 @@ class Converter
   TEMPLATE_PART_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has left</span>'
   TEMPLATE_TOPIC_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
 
-  def convert(input_stream)
-    yield generate_header
-
-    input_stream.lines.each_with_index do |rline, line_number|
-      yield "#{rline}#{line_number}\n"
-    end
-
-    yield generate_footer
-  end
-
   def cline_of_invalid_from_pline(pline, line_number)
     return TEMPLATE_LINE % [
       line_number,
@@ -96,6 +86,16 @@ class Converter
         sanitize(pline[:topic]),
       ]
     ]
+  end
+
+  def convert(input_stream)
+    yield generate_header
+
+    input_stream.lines.each_with_index do |rline, line_number|
+      yield "#{rline}#{line_number}\n"
+    end
+
+    yield generate_footer
   end
 
   def generate_header()
