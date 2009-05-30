@@ -26,7 +26,7 @@ class Converter
 
     date = args[0]
     unless /^\d\d\d\d-\d\d-\d\d$/ =~ date
-      $stderr.puts "Invalid date: #{args[0]}"
+      warn "Invalid date: #{args[0]}"
       return 1
     end
 
