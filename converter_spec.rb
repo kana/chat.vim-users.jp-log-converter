@@ -159,7 +159,7 @@ describe Converter, 'converting an evil message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_NORMAL3
     cline = c.cline_of_msg_from_pline pline, 12
-    cline.should == %q{<li id="L12" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&apos;</span></li>} + "\n"
+    cline.should == %q{<li id="L12" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&#39;</span></li>} + "\n"
   end
 end
 

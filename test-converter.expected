@@ -18,7 +18,7 @@
 <li id="L6" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text">http://gist.github.com/119798</span></li>
 <li id="L7" class="msg"><span class="time">03:17:42</span> <span class="nick">kana</span> <span class="text">やることやった感</span></li>
 <li id="L8" class="msg"><span class="time">14:00:37</span> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>
-<li id="L9" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&apos;</span></li>
+<li id="L9" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&#39;</span></li>
 <li id="L10" class="nick"><span class="time">09:34:25</span> <span class="text"><span class="old-nick">ukstudio</span> is now as known as <span class="new-nick">ukstudio_aw</span></span></li>
 <li id="L11" class="part"><span class="time">20:02:15</span> <span class="nick">kana</span> <span class="text">has left</span></li>
 <li id="L12" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.</span></span></li>

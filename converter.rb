@@ -202,7 +202,7 @@ class Converter
   end
 
   def sanitize(*args)
-    return CGI.escapeHTML(*args).gsub(/'/, '&apos;')
+    return CGI.escapeHTML(*args).gsub(/'/, '&#39;')
   end
 
   def usage()
