@@ -1,4 +1,4 @@
-......................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
+.......................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
 .dummy header
 01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode
 0
@@ -22,4 +22,4 @@ dummy footer
 ..
 
 
-41 examples, 0 failures
+42 examples, 0 failures

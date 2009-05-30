@@ -13,14 +13,7 @@ require 'cgi'
 class Converter
   TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>'
   TEMPLATE_JOIN_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has joined</span>'
-  TEMPLATE_NICK_CONTENT = <<-'END'
-    <span class="time">%s</span>
-    <span class="text">
-      <span class="old-nick">%s</span>
-      is now as known as
-      <span class="new-nick">%s</span>
-    </span>
-  END
+  TEMPLATE_NICK_CONTENT = '<span class="time">%s</span> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
   TEMPLATE_MSG_CONTENT = <<-'END'
     <span class="time">%s</span>
     <span class="nick">%s</span>
@@ -56,6 +49,18 @@ class Converter
       TEMPLATE_JOIN_CONTENT % [
         pline[:time],
         sanitize(pline[:nick])
+      ]
+    ]
+  end
+
+  def cline_of_nick_from_pline(pline, line_number)
+    return TEMPLATE_LINE % [
+      line_number,
+      pline[:type],
+      TEMPLATE_NICK_CONTENT % [
+        pline[:time],
+        sanitize(pline[:old_nick]),
+        sanitize(pline[:new_nick])
       ]
     ]
   end

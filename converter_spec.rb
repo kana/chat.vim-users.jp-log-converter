@@ -199,6 +199,18 @@ end
 
 
 
+describe Converter, 'converting a nick message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_NICK_MESSAGE
+    cline = c.cline_of_nick_from_pline pline, 2
+    cline.should == '<li id="L2" class="nick"><span class="time">09:34:25</span> <span class="text"><span class="old-nick">ukstudio</span> is now as known as <span class="new-nick">ukstudio_aw</span></span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing a part message' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RAW_PART_MESSAGE
