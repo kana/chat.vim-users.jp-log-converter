@@ -49,7 +49,7 @@ class Converter
     yield generate_footer
   end
 
-  def converted_line_of_join_from_pline(pline, line_number)
+  def cline_of_join_from_pline(pline, line_number)
     return TEMPLATE_LINE % [
       line_number,
       pline[:type],
