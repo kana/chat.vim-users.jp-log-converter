@@ -1,5 +1,15 @@
 ...........................................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
-.dummy header
+.<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+  <title>chat.vim-users.jp &gt; log &gt; 2009-05-30</title>
+  <link rel="stylesheet" href="log.css"/>
+  <!-- FIXME: rel="next" and others -->
+</head>
+<body>
+<h1>chat.vim-users.jp &gt; log &gt; 2009-05-30</h1>
+<ul class="log">
 Invalid format
 1
 01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode
@@ -26,7 +36,9 @@ Invalid format
 12
 00:01:02 Unsupported format
 13
-dummy footer
+</ul>
+</body>
+</html>
 ..
 
 

@@ -102,8 +102,8 @@ class Converter
     ]
   end
 
-  def convert(input_stream)  # FIXME: NIY
-    yield generate_header
+  def convert(input_stream, date)  # FIXME: NIY
+    yield generate_header date
 
     input_stream.lines.each_with_index do |rline, index|
       line_number = index + 1
@@ -113,12 +113,29 @@ class Converter
     yield generate_footer
   end
 
-  def generate_header()  # FIXME: NIY
-    return "dummy header\n"
+  def generate_header(date)
+    title = sanitize 'chat.vim-users.jp > log > %s' % date
+    return <<-'END' % [title, title]
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+  <title>%s</title>
+  <link rel="stylesheet" href="log.css"/>
+  <!-- FIXME: rel="next" and others -->
+</head>
+<body>
+<h1>%s</h1>
+<ul class="log">
+    END
   end
 
-  def generate_footer()  # FIXME: NIY
-    return "dummy footer\n"
+  def generate_footer()
+    return <<-'END'
+</ul>
+</body>
+</html>
+    END
   end
 
   def main(args)
@@ -132,7 +149,7 @@ class Converter
       return 1
     end
 
-    convert $stdin do |line|
+    convert $stdin, date do |line|
       print line
     end
 
