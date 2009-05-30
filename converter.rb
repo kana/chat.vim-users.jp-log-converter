@@ -49,13 +49,13 @@ class Converter
     yield generate_footer
   end
 
-  def converted_line_of_join_from_parsed_line(parsed_line, line_number)
+  def converted_line_of_join_from_pline(pline, line_number)
     return TEMPLATE_LINE % [
       line_number,
-      parsed_line[:type],
+      pline[:type],
       TEMPLATE_JOIN_CONTENT % [
-        parsed_line[:time],
-        sanitize(parsed_line[:nick])
+        pline[:time],
+        sanitize(pline[:nick])
       ]
     ]
   end
@@ -86,46 +86,46 @@ class Converter
     return 0
   end
 
-  def parsed_line_from_rline(rline)
-    parsed_line = {}
+  def pline_from_rline(rline)
+    pline = {}
 
     /^(\d\d:\d\d:\d\d) (.)/ =~ rline
-    parsed_line[:time] = Regexp.last_match 1
+    pline[:time] = Regexp.last_match 1
 
     case Regexp.last_match 2
     when nil then
-      parsed_line[:type] = :invalid
-      parsed_line[:original] = rline
+      pline[:type] = :invalid
+      pline[:original] = rline
     when '+' then
       /^\S+ \+ (\S+) / =~ rline
-      parsed_line[:type] = :join
-      parsed_line[:nick] = Regexp.last_match 1
+      pline[:type] = :join
+      pline[:nick] = Regexp.last_match 1
     when '!' then
       /^\S+ ! (\S+) / =~ rline
-      parsed_line[:type] = :part
-      parsed_line[:nick] = Regexp.last_match 1
+      pline[:type] = :part
+      pline[:nick] = Regexp.last_match 1
     when '<', '>' then
       /^\S+ [<>]\S+:(\S+)[<>] (.*)$/ =~ rline
-      parsed_line[:type] = :msg
-      parsed_line[:nick] = Regexp.last_match 1
-      parsed_line[:text] = Regexp.last_match 2
+      pline[:type] = :msg
+      pline[:nick] = Regexp.last_match 1
+      pline[:text] = Regexp.last_match 2
     else
       if /^\S+ (\S+) -> (\S+)/ =~ rline
-        parsed_line[:type] = :nick
-        parsed_line[:old_nick] = Regexp.last_match 1
-        parsed_line[:new_nick] = Regexp.last_match 2
-        parsed_line[:nick] = Regexp.last_match 2
+        pline[:type] = :nick
+        pline[:old_nick] = Regexp.last_match 1
+        pline[:new_nick] = Regexp.last_match 2
+        pline[:nick] = Regexp.last_match 2
       elsif /^\S+ Topic of channel #\S+@\S+ by (\S+): (.*)$/ =~ rline
-        parsed_line[:type] = :topic
-        parsed_line[:nick] = Regexp.last_match 1
-        parsed_line[:topic] = Regexp.last_match 2
+        pline[:type] = :topic
+        pline[:nick] = Regexp.last_match 1
+        pline[:topic] = Regexp.last_match 2
       else
-        parsed_line[:type] = :invalid
-        parsed_line[:original] = rline
+        pline[:type] = :invalid
+        pline[:original] = rline
       end
     end
 
-    return parsed_line
+    return pline
   end
 
   def sanitize(*args)

@@ -20,19 +20,19 @@ RAW_TOPIC_MESSAGE = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_ky
 
 describe Converter, 'parsing a join message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_JOIN_MESSAGE
+    @pline = Converter.new.pline_from_rline RAW_JOIN_MESSAGE
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :join
+    @pline[:type].should == :join
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'thinca'
+    @pline[:nick].should == 'thinca'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '01:09:27'
+    @pline[:time].should == '01:09:27'
   end
 end
 
@@ -42,8 +42,8 @@ end
 describe Converter, 'converting a join message' do  #{{{1
   it 'should convert the line nicely' do
     c = Converter.new
-    parsed_line = c.parsed_line_from_rline RAW_JOIN_MESSAGE
-    converted_line = c.converted_line_of_join_from_parsed_line parsed_line, 1
+    pline = c.pline_from_rline RAW_JOIN_MESSAGE
+    converted_line = c.converted_line_of_join_from_pline pline, 1
     converted_line.should == '<li id="L1" class="join"><span class="time">01:09:27</span> <span class="nick">thinca</span> <span class="text">has joined</span></li>'
   end
 end
@@ -53,23 +53,23 @@ end
 
 describe Converter, 'parsing a normal message without specials' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS
+    @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :msg
+    @pline[:type].should == :msg
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'kana'
+    @pline[:nick].should == 'kana'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '03:17:42'
+    @pline[:time].should == '03:17:42'
   end
 
   it 'should have a valid text' do
-    @parsed_line[:text].should == 'やることやった感'
+    @pline[:text].should == 'やることやった感'
   end
 end
 
@@ -78,23 +78,23 @@ end
 
 describe Converter, 'parsing another normal message without specials' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
+    @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :msg
+    @pline[:type].should == :msg
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'from_kyushu'
+    @pline[:nick].should == 'from_kyushu'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '14:00:37'
+    @pline[:time].should == '14:00:37'
   end
 
   it 'should have a valid text' do
-    @parsed_line[:text].should == 'gyazoみたく簡単にできれば良いのだけども'
+    @pline[:text].should == 'gyazoみたく簡単にできれば良いのだけども'
   end
 end
 
@@ -103,23 +103,23 @@ end
 
 describe Converter, 'parsing a normal message with an image link' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK
+    @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :msg
+    @pline[:type].should == :msg
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'kana'
+    @pline[:nick].should == 'kana'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '03:22:04'
+    @pline[:time].should == '03:22:04'
   end
 
   it 'should have a valid text' do
-    @parsed_line[:text].should == 'http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png'
+    @pline[:text].should == 'http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png'
   end
 end
 
@@ -128,23 +128,23 @@ end
 
 describe Converter, 'parsing a normal message with a normal link' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
+    @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :msg
+    @pline[:type].should == :msg
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'kana'
+    @pline[:nick].should == 'kana'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '03:17:35'
+    @pline[:time].should == '03:17:35'
   end
 
   it 'should have a valid text' do
-    @parsed_line[:text].should == 'よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary'
+    @pline[:text].should == 'よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary'
   end
 end
 
@@ -153,23 +153,23 @@ end
 
 describe Converter, 'parsing a normal message with a paste link' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
+    @pline = Converter.new.pline_from_rline RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :msg
+    @pline[:type].should == :msg
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'Shougo'
+    @pline[:nick].should == 'Shougo'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '14:28:59'
+    @pline[:time].should == '14:28:59'
   end
 
   it 'should have a valid text' do
-    @parsed_line[:text].should == 'http://gist.github.com/119798'
+    @pline[:text].should == 'http://gist.github.com/119798'
   end
 end
 
@@ -178,21 +178,21 @@ end
 
 describe Converter, 'parsing a nick message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_NICK_MESSAGE
+    @pline = Converter.new.pline_from_rline RAW_NICK_MESSAGE
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :nick
+    @pline[:type].should == :nick
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'ukstudio_aw'
-    @parsed_line[:old_nick].should == 'ukstudio'
-    @parsed_line[:new_nick].should == 'ukstudio_aw'
+    @pline[:nick].should == 'ukstudio_aw'
+    @pline[:old_nick].should == 'ukstudio'
+    @pline[:new_nick].should == 'ukstudio_aw'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '09:34:25'
+    @pline[:time].should == '09:34:25'
   end
 end
 
@@ -201,19 +201,19 @@ end
 
 describe Converter, 'parsing a part message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_PART_MESSAGE
+    @pline = Converter.new.pline_from_rline RAW_PART_MESSAGE
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :part
+    @pline[:type].should == :part
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'kana'
+    @pline[:nick].should == 'kana'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '20:02:15'
+    @pline[:time].should == '20:02:15'
   end
 end
 
@@ -222,23 +222,23 @@ end
 
 describe Converter, 'parsing a topic message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline RAW_TOPIC_MESSAGE
+    @pline = Converter.new.pline_from_rline RAW_TOPIC_MESSAGE
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :topic
+    @pline[:type].should == :topic
   end
 
   it 'should have a valid nick' do
-    @parsed_line[:nick].should == 'from_kyushu'
+    @pline[:nick].should == 'from_kyushu'
   end
 
   it 'should have a valid time' do
-    @parsed_line[:time].should == '13:45:40'
+    @pline[:time].should == '13:45:40'
   end
 
   it 'should have a valid topic' do
-    @parsed_line[:topic].should == 'ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
+    @pline[:topic].should == 'ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
   end
 end
 
@@ -247,15 +247,15 @@ end
 
 describe Converter, 'parsing an invalid message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline 'foo bar baz'
+    @pline = Converter.new.pline_from_rline 'foo bar baz'
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :invalid
+    @pline[:type].should == :invalid
   end
 
   it 'should have the original value' do
-    @parsed_line[:original].should == 'foo bar baz'
+    @pline[:original].should == 'foo bar baz'
   end
 end
 
@@ -264,15 +264,15 @@ end
 
 describe Converter, 'parsing another invalid message' do  #{{{1
   before do
-    @parsed_line = Converter.new.parsed_line_from_rline '00:01:02 Xyzzy'
+    @pline = Converter.new.pline_from_rline '00:01:02 Xyzzy'
   end
 
   it 'should have a valid type' do
-    @parsed_line[:type].should == :invalid
+    @pline[:type].should == :invalid
   end
 
   it 'should have the original value' do
-    @parsed_line[:original].should == '00:01:02 Xyzzy'
+    @pline[:original].should == '00:01:02 Xyzzy'
   end
 end
 
