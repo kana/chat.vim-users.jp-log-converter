@@ -87,7 +87,7 @@ describe Converter, 'converting a join message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_JOIN
     cline = c.cline_of_join_from_pline pline, 1
-    cline.should == '<li id="L1" class="join"><a class="time" href="#L1" title="URI for the post #1">01:09:27</a> <span class="nick">thinca</span> <span class="text">has joined</span></li>' + "\n"
+    cline.should == '<tr id="L1" class="join"><td><a class="time" href="#L1" title="URI for the post #1">01:09:27</a></td> <td><span class="nick">thinca</span></td> <td><span class="text">has joined</span></td></tr>' + "\n"
   end
 end
 
@@ -124,7 +124,7 @@ describe Converter, 'converting a normal message without specials' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_NORMAL
     cline = c.cline_of_msg_from_pline pline, 5
-    cline.should == '<li id="L5" class="msg"><a class="time" href="#L5" title="URI for the post #5">03:17:42</a> <span class="nick">kana</span> <span class="text">やることやった感</span></li>' + "\n"
+    cline.should == '<tr id="L5" class="msg"><td><a class="time" href="#L5" title="URI for the post #5">03:17:42</a></td> <td><span class="nick">kana</span></td> <td><span class="text">やることやった感</span></td></tr>' + "\n"
   end
 end
 
@@ -161,7 +161,7 @@ describe Converter, 'converting another normal message without specials' do  #{{
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_NORMAL2
     cline = c.cline_of_msg_from_pline pline, 6
-    cline.should == '<li id="L6" class="msg"><a class="time" href="#L6" title="URI for the post #6">14:00:37</a> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>' + "\n"
+    cline.should == '<tr id="L6" class="msg"><td><a class="time" href="#L6" title="URI for the post #6">14:00:37</a></td> <td><span class="nick">from_kyushu</span></td> <td><span class="text">gyazoみたく簡単にできれば良いのだけども</span></td></tr>' + "\n"
   end
 end
 
@@ -198,7 +198,7 @@ describe Converter, 'converting an evil message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_NORMAL3
     cline = c.cline_of_msg_from_pline pline, 12
-    cline.should == %q{<li id="L12" class="msg"><a class="time" href="#L12" title="URI for the post #12">00:01:02</a> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&#39;</span></li>} + "\n"
+    cline.should == %q{<tr id="L12" class="msg"><td><a class="time" href="#L12" title="URI for the post #12">00:01:02</a></td> <td><span class="nick">kana</span></td> <td><span class="text">&amp;&quot;&lt;&gt;&#39;</span></td></tr>} + "\n"
   end
 end
 
@@ -235,7 +235,7 @@ describe Converter, 'converting a normal message with an image link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_IMAGE
     cline = c.cline_of_msg_from_pline pline, 7
-    cline.should == '<li id="L7" class="msg"><a class="time" href="#L7" title="URI for the post #7">03:22:04</a> <span class="nick">kana</span> <span class="text"><a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a></span></li>' + "\n"
+    cline.should == '<tr id="L7" class="msg"><td><a class="time" href="#L7" title="URI for the post #7">03:22:04</a></td> <td><span class="nick">kana</span></td> <td><span class="text"><a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a></span></td></tr>' + "\n"
   end
 end
 
@@ -272,7 +272,7 @@ describe Converter, 'converting a normal message with a normal link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_NORMAL
     cline = c.cline_of_msg_from_pline pline, 8
-    cline.should == '<li id="L8" class="msg"><a class="time" href="#L8" title="URI for the post #8">03:17:35</a> <span class="nick">kana</span> <span class="text">よし寝る <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a></span></li>' + "\n"
+    cline.should == '<tr id="L8" class="msg"><td><a class="time" href="#L8" title="URI for the post #8">03:17:35</a></td> <td><span class="nick">kana</span></td> <td><span class="text">よし寝る <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a></span></td></tr>' + "\n"
   end
 end
 
@@ -309,7 +309,7 @@ describe Converter, 'converting a normal message with a paste link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_PASTE
     cline = c.cline_of_msg_from_pline pline, 9
-    cline.should == '<li id="L9" class="msg"><a class="time" href="#L9" title="URI for the post #9">14:28:59</a> <span class="nick">Shougo</span> <span class="text"><a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script></span></li>' + "\n"
+    cline.should == '<tr id="L9" class="msg"><td><a class="time" href="#L9" title="URI for the post #9">14:28:59</a></td> <td><span class="nick">Shougo</span></td> <td><span class="text"><a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script></span></td></tr>' + "\n"
   end
 end
 
@@ -346,7 +346,7 @@ describe Converter, 'converting a normal message with multiple links' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_ALL_TYPES
     cline = c.cline_of_msg_from_pline pline, 11
-    cline.should == '<li id="L11" class="msg"><a class="time" href="#L11" title="URI for the post #11">00:01:02</a> <span class="nick">kana</span> <span class="text">foo <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a> bar <a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a> baz <a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script> hehehe</span></li>' + "\n"
+    cline.should == '<tr id="L11" class="msg"><td><a class="time" href="#L11" title="URI for the post #11">00:01:02</a></td> <td><span class="nick">kana</span></td> <td><span class="text">foo <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a> bar <a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a> baz <a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script> hehehe</span></td></tr>' + "\n"
   end
 end
 
@@ -381,7 +381,7 @@ describe Converter, 'converting a nick message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_NICK
     cline = c.cline_of_nick_from_pline pline, 2
-    cline.should == '<li id="L2" class="nick"><a class="time" href="#L2" title="URI for the post #2">09:34:25</a> <span class="text"><span class="old-nick">ukstudio</span> is now as known as <span class="new-nick">ukstudio_aw</span></span></li>' + "\n"
+    cline.should == '<tr id="L2" class="nick"><td><a class="time" href="#L2" title="URI for the post #2">09:34:25</a></td> <td><span class="old-nick">ukstudio</span></td> <td><span class="text">is now as known as <span class="new-nick">ukstudio_aw</span></span></td></tr>' + "\n"
   end
 end
 
@@ -414,7 +414,7 @@ describe Converter, 'converting a part message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_PART
     cline = c.cline_of_part_from_pline pline, 3
-    cline.should == '<li id="L3" class="part"><a class="time" href="#L3" title="URI for the post #3">20:02:15</a> <span class="nick">kana</span> <span class="text">has left</span></li>' + "\n"
+    cline.should == '<tr id="L3" class="part"><td><a class="time" href="#L3" title="URI for the post #3">20:02:15</a></td> <td><span class="nick">kana</span></td> <td><span class="text">has left</span></td></tr>' + "\n"
   end
 end
 
@@ -451,7 +451,7 @@ describe Converter, 'converting a topic message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_TOPIC
     cline = c.cline_of_topic_from_pline pline, 4
-    cline.should == '<li id="L4" class="topic"><a class="time" href="#L4" title="URI for the post #4">13:45:40</a> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 <a href="http://chat.vim-users.jp/">http://chat.vim-users.jp/</a> for true vim users and not true vim users.</span></span></li>' + "\n"
+    cline.should == '<tr id="L4" class="topic"><td><a class="time" href="#L4" title="URI for the post #4">13:45:40</a></td> <td><span class="nick">from_kyushu</span></td> <td><span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 <a href="http://chat.vim-users.jp/">http://chat.vim-users.jp/</a> for true vim users and not true vim users.</span></span></td></tr>' + "\n"
   end
 end
 
@@ -484,7 +484,7 @@ describe Converter, 'converting an unsuported message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_UNSUPPORTED
     cline = c.cline_of_unsupported_from_pline pline, 10
-    cline.should == '<li id="L10" class="unsupported"><a class="time" href="#L10" title="URI for the post #10">00:01:02</a> <span class="text">Unsupported format</span></li>' + "\n"
+    cline.should == '<tr id="L10" class="unsupported"><td><a class="time" href="#L10" title="URI for the post #10">00:01:02</a></td> <td colspan="2"><span class="text">Unsupported format</span></td></tr>' + "\n"
   end
 end
 
@@ -513,7 +513,7 @@ describe Converter, 'converting an invalid message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_INVALID
     cline = c.cline_of_invalid_from_pline pline, 10
-    cline.should == '<li id="L10" class="invalid"><a class="text" href="#L10" title="URI for the post #10">Invalid format</a></li>' + "\n"
+    cline.should == '<tr id="L10" class="invalid"><td colspan="3"><a class="text" href="#L10" title="URI for the post #10">Invalid format</a></td></tr>' + "\n"
   end
 end
 

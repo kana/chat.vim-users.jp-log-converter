@@ -12,15 +12,15 @@ require 'uri'
 
 
 class Converter
-  TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>' + "\n"
+  TEMPLATE_LINE = '<tr id="L%d" class="%s">%s</tr>' + "\n"
 
-  TEMPLATE_INVALID_CONTENT = '<a class="text" href="#L%d" title="URI for the post #%d">%s</a>'
-  TEMPLATE_JOIN_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">has joined</span>'
-  TEMPLATE_MSG_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">%s</span>'
-  TEMPLATE_NICK_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
-  TEMPLATE_PART_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">has left</span>'
-  TEMPLATE_TOPIC_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
-  TEMPLATE_UNSUPPORTED_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="text">%s</span>'
+  TEMPLATE_INVALID_CONTENT = '<td colspan="3"><a class="text" href="#L%d" title="URI for the post #%d">%s</a></td>'
+  TEMPLATE_JOIN_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">has joined</span></td>'
+  TEMPLATE_MSG_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">%s</span></td>'
+  TEMPLATE_NICK_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="old-nick">%s</span></td> <td><span class="text">is now as known as <span class="new-nick">%s</span></span></td>'
+  TEMPLATE_PART_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">has left</span></td>'
+  TEMPLATE_TOPIC_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">sets topic: <span class="topic">%s</span></span></td>'
+  TEMPLATE_UNSUPPORTED_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td colspan="2"><span class="text">%s</span></td>'
 
   def cline_of_invalid_from_pline(pline, line_number)
     return TEMPLATE_LINE % [
@@ -130,7 +130,7 @@ class Converter
 
   def generate_header(date)
     title = sanitize 'chat.vim-users.jp > log > %s' % date
-    return <<-'END' % [title, title]
+    return <<-'END' % [title, title, date]
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
@@ -141,13 +141,13 @@ class Converter
 </head>
 <body>
 <h1>%s</h1>
-<ul class="log">
+<table class="log" summary="Messages posted on %s">
     END
   end
 
   def generate_footer()
     return <<-'END'
-</ul>
+</table>
 </body>
 </html>
     END
