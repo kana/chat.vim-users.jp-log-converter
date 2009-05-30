@@ -18,7 +18,7 @@ RAW_TOPIC_MESSAGE = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_ky
 
 
 
-describe Converter, 'with a join message' do  #{{{1
+describe Converter, 'parsing a join message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_JOIN_MESSAGE
   end
@@ -39,7 +39,7 @@ end
 
 
 
-describe Converter, 'with a normal message without specials' do  #{{{1
+describe Converter, 'parsing a normal message without specials' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITHOUT_SPECIALS
   end
@@ -64,7 +64,7 @@ end
 
 
 
-describe Converter, 'with another normal message without specials' do  #{{{1
+describe Converter, 'parsing another normal message without specials' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITHOUT_SPECIALS2
   end
@@ -89,7 +89,7 @@ end
 
 
 
-describe Converter, 'with a normal message with an image link' do  #{{{1
+describe Converter, 'parsing a normal message with an image link' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK
   end
@@ -114,7 +114,7 @@ end
 
 
 
-describe Converter, 'with a normal message with a normal link' do  #{{{1
+describe Converter, 'parsing a normal message with a normal link' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK
   end
@@ -139,7 +139,7 @@ end
 
 
 
-describe Converter, 'with a normal message with a paste link' do  #{{{1
+describe Converter, 'parsing a normal message with a paste link' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITH_A_PASTE_LINK
   end
@@ -164,7 +164,7 @@ end
 
 
 
-describe Converter, 'with a nick message' do  #{{{1
+describe Converter, 'parsing a nick message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_NICK_MESSAGE
   end
@@ -187,7 +187,7 @@ end
 
 
 
-describe Converter, 'with a part message' do  #{{{1
+describe Converter, 'parsing a part message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_PART_MESSAGE
   end
@@ -208,7 +208,7 @@ end
 
 
 
-describe Converter, 'with a topic message' do  #{{{1
+describe Converter, 'parsing a topic message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_TOPIC_MESSAGE
   end
@@ -233,7 +233,7 @@ end
 
 
 
-describe Converter, 'with an invalid message' do  #{{{1
+describe Converter, 'parsing an invalid message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line 'foo bar baz'
   end
@@ -250,7 +250,7 @@ end
 
 
 
-describe Converter, 'with another invalid message' do  #{{{1
+describe Converter, 'parsing another invalid message' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line '00:01:02 Xyzzy'
   end
