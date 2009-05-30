@@ -102,12 +102,14 @@ class Converter
     ]
   end
 
-  def convert(input_stream, date)  # FIXME: NIY
+  def convert(input_stream, date)
     yield generate_header date
 
     input_stream.lines.each_with_index do |rline, index|
       line_number = index + 1
-      yield "#{rline}#{line_number}\n"
+      pline = pline_from_rline rline
+      cline_from_pline = method('cline_of_%s_from_pline' % pline[:type])
+      yield cline_from_pline.call pline, line_number
     end
 
     yield generate_footer

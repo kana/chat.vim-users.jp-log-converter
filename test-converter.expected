@@ -10,32 +10,19 @@
 <body>
 <h1>chat.vim-users.jp &gt; log &gt; 2009-05-30</h1>
 <ul class="log">
-Invalid format
-1
-01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode
-2
-00:01:02 <#Vim-users.jp@freenode:kana> foo http://whileimautomaton.net/2009/05/29/02/37/54/diary bar http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png baz http://gist.github.com/119798 hehehe
-3
-03:22:04 <#Vim-users.jp@freenode:kana> http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png
-4
-03:17:35 <#Vim-users.jp@freenode:kana> よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary
-5
-14:28:59 <#Vim-users.jp@freenode:Shougo> http://gist.github.com/119798
-6
-03:17:42 <#Vim-users.jp@freenode:kana> やることやった感
-7
-14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみたく簡単にできれば良いのだけども
-8
-00:01:02 <#Vim-users.jp@freenode:kana> &"<>'
-9
-09:34:25 ukstudio -> ukstudio_aw
-10
-20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")
-11
-13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.
-12
-00:01:02 Unsupported format
-13
+<li id="L1" class="invalid"><span class="text">Invalid format</span></li>
+<li id="L2" class="join"><span class="time">01:09:27</span> <span class="nick">thinca</span> <span class="text">has joined</span></li>
+<li id="L3" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">foo http://whileimautomaton.net/2009/05/29/02/37/54/diary bar http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png baz http://gist.github.com/119798 hehehe</span></li>
+<li id="L4" class="msg"><span class="time">03:22:04</span> <span class="nick">kana</span> <span class="text">http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png</span></li>
+<li id="L5" class="msg"><span class="time">03:17:35</span> <span class="nick">kana</span> <span class="text">よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary</span></li>
+<li id="L6" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text">http://gist.github.com/119798</span></li>
+<li id="L7" class="msg"><span class="time">03:17:42</span> <span class="nick">kana</span> <span class="text">やることやった感</span></li>
+<li id="L8" class="msg"><span class="time">14:00:37</span> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>
+<li id="L9" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&apos;</span></li>
+<li id="L10" class="nick"><span class="time">09:34:25</span> <span class="text"><span class="old-nick">ukstudio</span> is now as known as <span class="new-nick">ukstudio_aw</span></span></li>
+<li id="L11" class="part"><span class="time">20:02:15</span> <span class="nick">kana</span> <span class="text">has left</span></li>
+<li id="L12" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.</span></span></li>
+<li id="L13" class="unsupported"><span class="time">00:01:02</span> <span class="text">Unsupported format</span></li>
 </ul>
 </body>
 </html>
