@@ -14,6 +14,8 @@ RLINE_MSG_NORMAL2 = '14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみた�
 RLINE_NICK = '09:34:25 ukstudio -> ukstudio_aw'
 RLINE_PART = '20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")'
 RLINE_TOPIC = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
+RLINE_INVALID = '00:01:02 Invalid format'
+RLINE_INVALID2 = 'Invalid format mk2'
 
 
 
@@ -343,7 +345,7 @@ end
 
 describe Converter, 'parsing an invalid message' do  #{{{1
   before do
-    @pline = Converter.new.pline_from_rline 'foo bar baz'
+    @pline = Converter.new.pline_from_rline RLINE_INVALID
   end
 
   it 'should have a valid type' do
@@ -351,7 +353,7 @@ describe Converter, 'parsing an invalid message' do  #{{{1
   end
 
   it 'should have the original value' do
-    @pline[:original].should == 'foo bar baz'
+    @pline[:original].should == RLINE_INVALID
   end
 end
 
@@ -360,7 +362,7 @@ end
 
 describe Converter, 'parsing another invalid message' do  #{{{1
   before do
-    @pline = Converter.new.pline_from_rline '00:01:02 Xyzzy'
+    @pline = Converter.new.pline_from_rline RLINE_INVALID2
   end
 
   it 'should have a valid type' do
@@ -368,7 +370,7 @@ describe Converter, 'parsing another invalid message' do  #{{{1
   end
 
   it 'should have the original value' do
-    @pline[:original].should == '00:01:02 Xyzzy'
+    @pline[:original].should == RLINE_INVALID2
   end
 end
 
