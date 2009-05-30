@@ -48,7 +48,7 @@ describe Converter, 'translating uris, neat style' do  #{{{1
   it 'should translate image uris into html links with img' do
     sanitized_s = @c.sanitize 'foo http://example.com/a.png bar http://example.net/b.png'
     translated_s = @c.make_neat_links_in sanitized_s
-    translated_s.should == 'foo <a href="http://example.com/a.png"><img src="http://example.com/a.png" alt="http://example.com/a.png"/></a> bar <a href="http://example.net/b.png"><img src="http://example.net/b.png" alt="http://example.net/b.png"/></a>'
+    translated_s.should == 'foo <a href="http://example.com/a.png" class="image"><img src="http://example.com/a.png" alt="http://example.com/a.png"/></a> bar <a href="http://example.net/b.png" class="image"><img src="http://example.net/b.png" alt="http://example.net/b.png"/></a>'
   end
 
   it 'should translate gist uris into html links with script' do
@@ -235,7 +235,7 @@ describe Converter, 'converting a normal message with an image link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_IMAGE
     cline = c.cline_of_msg_from_pline pline, 7
-    cline.should == '<tr id="L7" class="msg"><td><a class="time" href="#L7" title="URI for the post #7">03:22:04</a></td> <td><span class="nick">kana</span></td> <td><span class="text"><a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a></span></td></tr>' + "\n"
+    cline.should == '<tr id="L7" class="msg"><td><a class="time" href="#L7" title="URI for the post #7">03:22:04</a></td> <td><span class="nick">kana</span></td> <td><span class="text"><a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" class="image"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a></span></td></tr>' + "\n"
   end
 end
 
@@ -346,7 +346,7 @@ describe Converter, 'converting a normal message with multiple links' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_ALL_TYPES
     cline = c.cline_of_msg_from_pline pline, 11
-    cline.should == '<tr id="L11" class="msg"><td><a class="time" href="#L11" title="URI for the post #11">00:01:02</a></td> <td><span class="nick">kana</span></td> <td><span class="text">foo <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a> bar <a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a> baz <a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script> hehehe</span></td></tr>' + "\n"
+    cline.should == '<tr id="L11" class="msg"><td><a class="time" href="#L11" title="URI for the post #11">00:01:02</a></td> <td><span class="nick">kana</span></td> <td><span class="text">foo <a href="http://whileimautomaton.net/2009/05/29/02/37/54/diary">http://whileimautomaton.net/2009/05/29/02/37/54/diary</a> bar <a href="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" class="image"><img src="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png" alt="http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png"/></a> baz <a href="http://gist.github.com/119798">http://gist.github.com/119798</a><script src="http://gist.github.com/119798.js" type="text/javascript"></script> hehehe</span></td></tr>' + "\n"
   end
 end
 
