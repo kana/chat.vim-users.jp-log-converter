@@ -2,6 +2,7 @@
 # Misc. initialization  #{{{1
 
 require 'converter'
+require 'stringio'
 
 
 RAW_JOIN_MESSAGE = '01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode'
@@ -278,7 +279,20 @@ end
 
 describe Converter, 'main with a valid argument' do  #{{{1
   it 'should return 0' do
-    Converter.new.main(['2009-05-30']).should == 0
+    original_stdin = $stdin
+      $stdin = StringIO.new [
+        RAW_JOIN_MESSAGE,
+        RAW_MSG_MESSAGE_WITHOUT_SPECIALS,
+        RAW_MSG_MESSAGE_WITHOUT_SPECIALS2,
+        RAW_MSG_MESSAGE_WITH_AN_IMAGE_LINK,
+        RAW_MSG_MESSAGE_WITH_A_NORMAL_LINK,
+        RAW_MSG_MESSAGE_WITH_A_PASTE_LINK,
+        RAW_NICK_MESSAGE,
+        RAW_PART_MESSAGE,
+        RAW_TOPIC_MESSAGE
+      ].join("\n")
+      Converter.new.main(['2009-05-30']).should == 0
+    $stdin = original_stdin
   end
 end
 

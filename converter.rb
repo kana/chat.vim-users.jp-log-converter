@@ -3,7 +3,11 @@
 class Converter
   def convert(input_stream)
     print generate_header
-    puts 'dummy'
+
+    input_stream.lines.each_with_index do |raw_line, line_number|
+      puts raw_line, line_number
+    end
+
     print generate_footer
   end
 
