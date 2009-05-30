@@ -17,7 +17,7 @@ class Converter
   TEMPLATE_INVALID_CONTENT = '<td colspan="3"><a class="text" href="#L%d" title="URI for the post #%d">%s</a></td>'
   TEMPLATE_JOIN_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">has joined</span></td>'
   TEMPLATE_MSG_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">%s</span></td>'
-  TEMPLATE_NICK_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="old-nick">%s</span></td> <td><span class="text">is now as known as <span class="new-nick">%s</span></span></td>'
+  TEMPLATE_NICK_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">is now as known as <span class="new-nick">%s</span></span></td>'
   TEMPLATE_PART_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">has left</span></td>'
   TEMPLATE_TOPIC_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td><span class="nick">%s</span></td> <td><span class="text">sets topic: <span class="topic">%s</span></span></td>'
   TEMPLATE_UNSUPPORTED_CONTENT = '<td><a class="time" href="#L%d" title="URI for the post #%d">%s</a></td> <td colspan="2"><span class="text">%s</span></td>'

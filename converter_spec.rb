@@ -381,7 +381,7 @@ describe Converter, 'converting a nick message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_NICK
     cline = c.cline_of_nick_from_pline pline, 2
-    cline.should == '<tr id="L2" class="nick"><td><a class="time" href="#L2" title="URI for the post #2">09:34:25</a></td> <td><span class="old-nick">ukstudio</span></td> <td><span class="text">is now as known as <span class="new-nick">ukstudio_aw</span></span></td></tr>' + "\n"
+    cline.should == '<tr id="L2" class="nick"><td><a class="time" href="#L2" title="URI for the post #2">09:34:25</a></td> <td><span class="nick">ukstudio</span></td> <td><span class="text">is now as known as <span class="new-nick">ukstudio_aw</span></span></td></tr>' + "\n"
   end
 end
 
