@@ -165,7 +165,7 @@ class Converter
     case Regexp.last_match 2
     when nil then
       pline[:type] = :invalid
-      pline[:original] = rline
+      pline[:original] = rline.chomp
     when '+' then
       /^\S+ \+ (\S+) / =~ rline
       pline[:type] = :join
