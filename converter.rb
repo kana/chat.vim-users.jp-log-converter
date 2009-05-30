@@ -1,6 +1,38 @@
 #!/usr/bin/env ruby
 
 class Converter
+  TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>'
+  TEMPLATE_JOIN_CONTENT = <<-'END'
+    <span class="time">%s</span>
+    <span class="nick">%s</span>
+    <span class="text">has joined</span>
+  END
+  TEMPLATE_NICK_CONTENT = <<-'END'
+    <span class="time">%s</span>
+    <span class="text">
+      <span class="old-nick">%s</span>
+      is now as known as
+      <span class="new-nick">%s</span>
+    </span>
+  END
+  TEMPLATE_MSG_CONTENT = <<-'END'
+    <span class="time">%s</span>
+    <span class="nick">%s</span>
+    <span class="text">%s</span>
+  END
+  TEMPLATE_PART_CONTENT = <<-'END'
+    <span class="time">%s</span>
+    <span class="nick">%s</span>
+    <span class="text">has left</span>
+  END
+  TEMPLATE_TOPIC_CONTENT = <<-'END'
+    <span class="time">%s</span>
+    <span class="nick">%s</span>
+    <span class="text">sets topic:
+      <span class="topic">%s</span>
+    </span>
+  END
+
   def convert(input_stream)
     yield generate_header
 
