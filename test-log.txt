@@ -1,0 +1,520 @@
+00:13:04 + ito^^ (ito^^!n=agsgjla@p4059-ipbf4202marunouchi.tokyo.ocn.ne.jp) to #Vim-users.jp@freenode
+00:16:15 ! ito^^ (Remote closed the connection)
+00:41:47 + mib_viypyo (mib_viypyo!i=3d180748@gateway/web/ajax/mibbit.com/x-bd8c7ad0349ac0df) to #Vim-users.jp@freenode
+00:41:52 ! mib_viypyo (Client Quit)
+00:42:27 ! goto30_ (Client Quit)
+00:47:07 goto30_ -> goto30
+00:50:51 goto30 -> goto30_
+00:50:58 goto30_ -> goto30
+00:56:55 <#Vim-users.jp@freenode:kana> moutyoi
+00:58:57 <#Vim-users.jp@freenode:kana> いぇーい
+00:59:19 <#Vim-users.jp@freenode:kana> あとはacc_valid_p()だけか
+01:03:38 <#Vim-users.jp@freenode:kana> ん
+01:03:54 <#Vim-users.jp@freenode:kana> あきらかに間違ってるところがあるので直しますよ >ukstudio  Hack #18
+01:04:22 <#Vim-users.jp@freenode:kana> あとdiffはvsplitして見せた方が良いんじゃないかなー
+01:06:19 <#Vim-users.jp@freenode:kana> スクロールや表示内容が同期してることも触れると良いような
+01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode
+01:11:16 <#Vim-users.jp@freenode:thinca> なんと言うか、前から思っていたのだけど、「詳細は:help」はなんか違う気がしてる。下手するとhelp読めば記事いらないじゃんってなりかねない。
+01:11:22 <#Vim-users.jp@freenode:thinca> あくまで個人的な意見だけど。
+01:12:16 <#Vim-users.jp@freenode:thinca> まー「こんなこともできるよ」っていう紹介/導入用の記事って見方ならありかなー。
+01:14:13 <#Vim-users.jp@freenode:thinca> 今後のためにもみんなの意見を聞いてみたいです。
+01:24:22 ! goto30 ("Tiarra 0.1+svn-33535: SIGINT received; exit")
+01:25:17 >#Vim-users.jp@freenode:from_kyushu< というかVim初心者にとってはhelp自体がhack(というかtips?)のひとつに写るのではないかと予想
+01:25:49 <#Vim-users.jp@freenode:kana> クックブックだと思えばあれで良いんじゃないですか
+01:26:08 <#Vim-users.jp@freenode:ujihisa> hi
+01:26:13 <#Vim-users.jp@freenode:kana> はっきり言って詳細を書くと何であれ:helpのコピーに過ぎない
+01:26:31 <#Vim-users.jp@freenode:kana> よほどつっこんだ内容書かない限りはね
+01:26:42 <#Vim-users.jp@freenode:ujihisa> # あとでおれのhack17なおしとかないと
+01:26:53 >#Vim-users.jp@freenode:from_kyushu< > 下手するとhelp読めば記事いらないじゃん
+01:27:34 >#Vim-users.jp@freenode:from_kyushu< まさにhelpを読めば良いのですが
+01:27:48 <#Vim-users.jp@freenode:ujihisa> 特定の機能を知るために:help
+01:27:56 <#Vim-users.jp@freenode:ujihisa> 特定の目的を達成するために記事
+01:28:09 <#Vim-users.jp@freenode:ujihisa> > クックブックだと思えばあれで良いんじゃないですか
+01:28:13 <#Vim-users.jp@freenode:ujihisa> あるいは逆引き、とか
+01:28:17 >#Vim-users.jp@freenode:from_kyushu< kanaさんが仰っている通り、クックブックと思えばそれでよいと思う
+01:28:38 <#Vim-users.jp@freenode:ujihisa> 逆引きVim
+01:28:40 <#Vim-users.jp@freenode:ujihisa> Vim Cookbook
+01:28:47 <#Vim-users.jp@freenode:ujihisa> Programming Vim
+01:28:55 <#Vim-users.jp@freenode:ujihisa> 10日で作るVim
+01:29:01 <#Vim-users.jp@freenode:ujihisa> ネコでも分かるVim
+01:29:46 <#Vim-users.jp@freenode:ujihisa> たのしいVim
+01:29:56 <#Vim-users.jp@freenode:kana> The Deep Vim Secrets
+01:30:05 <#Vim-users.jp@freenode:ujihisa> From Emacs To Vim
+01:30:28 <#Vim-users.jp@freenode:kana> うーっし
+01:30:32 <#Vim-users.jp@freenode:ujihisa> 図解Vim
+01:30:33 <#Vim-users.jp@freenode:kana> できたできた
+01:31:14 <#Vim-users.jp@freenode:ujihisa> タイトルになりそうなものを羅列してみた
+01:32:34 >#Vim-users.jp@freenode:from_kyushu< > 10日で作るVim
+01:32:46 >#Vim-users.jp@freenode:from_kyushu< あきらかにひとつ違うのが混じっている
+01:33:01 <#Vim-users.jp@freenode:ujihisa> http://www.amazon.co.jp/3日で作るPHPアプリケーション-秦-崇/dp/475615106X
+01:33:08 <#Vim-users.jp@freenode:ujihisa> これにインスパイヤ
+01:33:15 >#Vim-users.jp@freenode:from_kyushu< 10日で作るVim Script
+01:33:18 <#Vim-users.jp@freenode:ujihisa> 3日で作るVim (プラグイン)
+01:33:37 <#Vim-users.jp@freenode:ujihisa> この本出たときはみんなPHP処理系の話かと思って期待が高まってたらしい
+01:33:45 <#Vim-users.jp@freenode:ujihisa> 表紙詐欺!
+01:39:26 <#Vim-users.jp@freenode:kana> ふふふ
+01:41:38 goto30_ -> goto30
+01:44:52 <#Vim-users.jp@freenode:kana> ku 0.2.4 http://www.vim.org/scripts/script.php?script_id=2337
+01:46:37 <#Vim-users.jp@freenode:thinca> 戻った。なるほど、了解。
+01:47:02 <#Vim-users.jp@freenode:thinca> クックブック読んだことないからどんなのか知らないという。もっと本読まないとなー。
+01:47:14 <#Vim-users.jp@freenode:kana> んーとl
+01:47:33 <#Vim-users.jp@freenode:kana> 例えばこんなの http://d.hatena.ne.jp/rui314/
+01:47:45 >#Vim-users.jp@freenode:from_kyushu< tips集みたいなイメージ、で良いのかなぁ < クックブック
+01:48:12 <#Vim-users.jp@freenode:thinca> なるほど、わかりやすい。
+01:49:56 <#Vim-users.jp@freenode:kana> 逆引きリファレンスの方が近くないですか
+01:50:51 >#Vim-users.jp@freenode:from_kyushu< そっちの方が近いですね
+01:50:59 <#Vim-users.jp@freenode:thinca> 逆引きVi
+01:51:07 <#Vim-users.jp@freenode:thinca> 逆引きVim
+01:51:42 <#Vim-users.jp@freenode:ujihisa> 逆引きvimrc
+01:54:49 <#Vim-users.jp@freenode:kana> 本当にあった怖いvimrc
+01:57:29 <#Vim-users.jp@freenode:ujihisa> 本当は怖い家庭のVim
+01:57:38 <#Vim-users.jp@freenode:ujihisa> 行列の出来るVim相談室
+01:58:19 <#Vim-users.jp@freenode:ujihisa> Vim Complete (上下巻)
+01:58:28 <#Vim-users.jp@freenode:ujihisa> Beautiful Vim
+01:58:59 <#Vim-users.jp@freenode:ujihisa> Vimの品格
+01:59:04 <#Vim-users.jp@freenode:ujihisa> Vim進化論
+02:01:10 <#Vim-users.jp@freenode:ujihisa> Emacsが滅びるとき -- Vimの世紀の中で
+02:06:04 <#Vim-users.jp@freenode:thinca> Vim SaGa
+02:06:43 >#Vim-users.jp@freenode:from_kyushu< Final Vim
+02:09:55 <#Vim-users.jp@freenode:thinca> Vim Quest
+02:10:27 >#Vim-users.jp@freenode:from_kyushu< Vim Questとか探したらありそうだ
+02:14:21 <#Vim-users.jp@freenode:ujihisa> vimquest.vim
+02:14:27 <#Vim-users.jp@freenode:ujihisa> vim上で動くRPG
+02:16:10 <#Vim-users.jp@freenode:ujihisa> ダンジョン探索系は容易に想像できるけど
+02:16:18 <#Vim-users.jp@freenode:ujihisa> ドラクエ系RPGとなると未踏
+02:17:06 >#Vim-users.jp@freenode:from_kyushu< 倉庫番はあるのね
+02:17:19 >#Vim-users.jp@freenode:from_kyushu< http://www.vim.org/scripts/script.php?script_id=211
+03:17:35 <#Vim-users.jp@freenode:kana> よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary
+03:17:42 <#Vim-users.jp@freenode:kana> やることやった感
+03:22:04 <#Vim-users.jp@freenode:kana> http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png
+03:22:30 <#Vim-users.jp@freenode:kana> やはりgit log --graphにもブランチの先頭を示すマーカーが欲しいなぁ
+03:22:51 <#Vim-users.jp@freenode:kana> aとbの二つがあったとして、bがaをfastforwardしたものだった場合に区別が付かない
+03:23:18 <#Vim-users.jp@freenode:kana> 区別が付くようなブランチだったとしても目立たないので視認しづらい
+03:26:15 ! Tomohiro (Read error: 110 (Connection timed out))
+03:30:45 <#Vim-users.jp@freenode:kana> maaやりたいことはやったので
+03:30:59 <#Vim-users.jp@freenode:kana> 六月中はアレをやるか
+03:34:34 ! thinca (Read error: 110 (Connection timed out))
+03:36:52 ! kana ("http://www.mibbit.com ajax IRC Client")
+08:05:06 <#Vim-users.jp@freenode:ujihisa> アレ
+08:08:42 ! ujihisa (Remote closed the connection)
+08:20:59 <#Vim-users.jp@freenode:kana> from_kyushu.txt
+08:21:04 <#Vim-users.jp@freenode:kana> ちがう
+08:21:07 <#Vim-users.jp@freenode:kana> ねぼけてるな
+08:21:58 <#Vim-users.jp@freenode:kana> chat.vim-users.txt/latest ==> chat.vim-users.jp/YYYY-MM-DD (最新の日付のログファイル) というシンボリックリンクがあれば便利かなーと思いました
+08:23:15 <#Vim-users.jp@freenode:kana> あとは chat.vim-users.jp にあるmibbitウィジェットの隣りにその内容が表示されるようになると、直近の話が分かって便利
+08:23:22 <#Vim-users.jp@freenode:kana> というかHTML化したいですね
+08:24:01 <#Vim-users.jp@freenode:kana> 生ログのフォーマットが現行のまま変わらないというのであれば書いちゃいますね
+08:24:46 <#Vim-users.jp@freenode:kana> あと個人的にはファイル名はYYYY-MM-DD(.extension)の方が好み
+08:24:52 <#Vim-users.jp@freenode:kana> 以上 >from_kyushu
+08:25:57 <#Vim-users.jp@freenode:kana> ちょうねむい……
+08:29:06 <#Vim-users.jp@freenode:kana> あれだ
+08:29:19 <#Vim-users.jp@freenode:kana> githubの公開リポジトリ作るの面倒
+08:29:27 <#Vim-users.jp@freenode:kana> git githubコマンドが必要
+08:29:57 <#Vim-users.jp@freenode:kana> git github createでカレントリポジトリに対応するgithubリポジトリを作りたい
+08:30:02 <#Vim-users.jp@freenode:kana> Webからポチポチやんの面倒
+08:30:08 <#Vim-users.jp@freenode:ujihisa> starbucksing
+08:30:13 <#Vim-users.jp@freenode:kana> 誰かやってないかなぁ
+08:30:15 <#Vim-users.jp@freenode:kana> よ
+08:30:26 <#Vim-users.jp@freenode:ujihisa> よ
+08:30:36 <#Vim-users.jp@freenode:ujihisa> 外は快晴
+08:30:44 <#Vim-users.jp@freenode:ujihisa> このあとビーチにいってコーディングするか
+08:31:02 <#Vim-users.jp@freenode:ujihisa> なんか半裸で歩いてる人が非常に多い
+08:31:48 <#Vim-users.jp@freenode:ujihisa> git githubいいなあ
+08:31:48 <#Vim-users.jp@freenode:ujihisa> metarw-git-github
+08:31:56 <#Vim-users.jp@freenode:kana> ほしーよね
+08:32:03 <#Vim-users.jp@freenode:kana> Rubyの練習に書こうかな
+08:32:12 <#Vim-users.jp@freenode:kana> 問題はあれだ
+08:32:39 <#Vim-users.jp@freenode:kana> HTTPS通信とか特に工夫しなくてもよしなにやってくれるのかな
+08:33:06 <#Vim-users.jp@freenode:ujihisa> kanaさんのruby力は充分に高まってしまったので
+08:33:31 <#Vim-users.jp@freenode:ujihisa> haskellとかerlangで
+08:34:09 <#Vim-users.jp@freenode:ujihisa> rubyのnet/http, net/httpsはなんか挙動がキモかったからblogger.vim/blogger.rbではすごい簡単なwrapper書いた
+08:36:45 <#Vim-users.jp@freenode:kana> んや
+08:36:51 <#Vim-users.jp@freenode:kana> なんというかな
+08:36:58 <#Vim-users.jp@freenode:kana> ついPythonで考えそうになる
+08:37:06 <#Vim-users.jp@freenode:kana> これは慣れの問題だけど
+08:37:44 <#Vim-users.jp@freenode:ujihisa> pythonista
+08:49:49 <#Vim-users.jp@freenode:kana> åれ
+08:49:58 <#Vim-users.jp@freenode:kana> なんかprefix利いてないな >ku
+08:50:33 <#Vim-users.jp@freenode:ujihisa> å
+08:50:34 <#Vim-users.jp@freenode:kana> なんでだ
+08:51:03 <#Vim-users.jp@freenode:kana> ああ
+08:51:11 <#Vim-users.jp@freenode:kana> absolute pathだと何故かだめっぴい
+08:53:03 <#Vim-users.jp@freenode:ujihisa> だめっぴい
+08:55:37 <#Vim-users.jp@freenode:kana> うへー凹む
+08:59:06 <#Vim-users.jp@freenode:kana> なんでだろ
+09:03:28 <#Vim-users.jp@freenode:kana> うんんんん
+09:03:31 <#Vim-users.jp@freenode:kana> へこむなぁ……
+09:03:56 <#Vim-users.jp@freenode:kana> あー
+09:03:58 <#Vim-users.jp@freenode:kana> そうかそうか
+09:04:08 <#Vim-users.jp@freenode:kana> パースは当ってるけど意味が違ってるんだ
+09:04:20 <#Vim-users.jp@freenode:kana> strridx()だよばかばか!
+09:05:07 <#Vim-users.jp@freenode:ujihisa> どじっこ++
+09:05:36 <#Vim-users.jp@freenode:ujihisa> http://gyazo.com/c63f2d40b153a1c1d5ea71ea59082827.png
+09:07:41 <#Vim-users.jp@freenode:kana> http://gyazo.com/383311176b8ebc2eb9a4c7de29e78bc3.png
+09:07:47 <#Vim-users.jp@freenode:ujihisa> twitterデザイン変更してる
+09:07:48 <#Vim-users.jp@freenode:ujihisa> びっくりした
+09:07:56 <#Vim-users.jp@freenode:ujihisa> wwwwww
+09:08:00 <#Vim-users.jp@freenode:ujihisa> デカい
+09:14:48 <#Vim-users.jp@freenode:kana> width/heightがアレで非常にアレなの
+09:14:51 <#Vim-users.jp@freenode:kana> mibbitの展開は
+09:15:05 <#Vim-users.jp@freenode:ujihisa> てすと
+09:15:19 <#Vim-users.jp@freenode:ujihisa> http://gyazo.com/d2e52e1f7cb2f6b3018cb4a3e7bd14af.png
+09:33:36 <#Vim-users.jp@freenode:kana> そういえば
+09:34:10 ukstudio_aw -> ukstudio
+09:34:25 ukstudio -> ukstudio_aw
+09:34:31 <#Vim-users.jp@freenode:kana> githubのREADME表示がよしなにやってくれるやつは中身を見て判定している訳ではないんですね
+09:37:08 <#Vim-users.jp@freenode:kana> リポジトリだけ作った http://github.com/kana/chat.vim-users.jp-log-converter/tree/master
+09:37:17 <#Vim-users.jp@freenode:kana> よく見たら何licenseかよくわからにな
+09:52:28 <#Vim-users.jp@freenode:ujihisa> > githubのreadme
+09:52:31 <#Vim-users.jp@freenode:ujihisa> markdownのやつかな
+09:52:41 <#Vim-users.jp@freenode:ujihisa> README.md優先
+09:59:13 <#Vim-users.jp@freenode:kana> いやそうじゃなくて
+09:59:29 <#Vim-users.jp@freenode:kana> 拡張子なんざ付けなくても中身みて判断してくれないかなーと
+09:59:41 <#Vim-users.jp@freenode:kana> 拡張子ベースです、と明言はされてた
+10:05:42 <#Vim-users.jp@freenode:ujihisa> なんと
+10:14:15 <#Vim-users.jp@freenode:kana> 複数README*があったら拡張子有りが優先される、という意味ではujihisaさんの発言は間違いじゃない
+10:15:39 <#Vim-users.jp@freenode:kana> さてと
+10:15:51 <#Vim-users.jp@freenode:ujihisa> w
+10:16:01 <#Vim-users.jp@freenode:kana> TODO: 日本中のVimユーザーを驚かせるような代物を作る
+10:16:05 <#Vim-users.jp@freenode:ujihisa> !!!!!!!!!!!!!!!!!
+10:18:14 <#Vim-users.jp@freenode:kana> おでかけタイム
+10:19:17 <#Vim-users.jp@freenode:ujihisa> s/日本/世界/
+10:21:39 ! kana ("http://www.mibbit.com ajax IRC Client")
+10:29:43 + Shougo (Shougo!n=shougo@202.213.1.210) to #Vim-users.jp@freenode
+10:36:13 <#Vim-users.jp@freenode:Shougo> Vimの変数の解放タイミングが分からないです。
+10:36:43 <#Vim-users.jp@freenode:ujihisa> !
+10:36:50 <#Vim-users.jp@freenode:Shougo> 参照がなくなったら、自動的に解放されるのでしょうか。
+10:37:18 <#Vim-users.jp@freenode:Shougo> ちょっと今neocomplcacheが重くなる原因を調べているんですけど、
+10:37:49 <#Vim-users.jp@freenode:Shougo> Dictionaryの要素をdelete()しても解放されていない感じがしています。
+10:38:19 <#Vim-users.jp@freenode:ujihisa> なんと
+10:39:00 <#Vim-users.jp@freenode:Shougo> 現状Athlon64 X2 4400+(2.3GHz)、メモリ2GBの環境でも、
+10:39:21 <#Vim-users.jp@freenode:Shougo> バッファを数十個開くとスクロールが明らかに遅くなります。
+10:39:44 <#Vim-users.jp@freenode:Shougo> 1/2～1/3くらいにはなりますね。
+10:40:17 <#Vim-users.jp@freenode:Shougo> 本当にneocomplcacheが原因なのか調べる予定ではあります。
+10:40:22 <#Vim-users.jp@freenode:ujihisa> スクロールが遅くなるのは確かに困る。うむむ
+10:46:57 <#Vim-users.jp@freenode:Shougo> Pentium 3.0GHz, メモリ1.5GBの環境では、バッファを10個開くだけでつらいです。
+10:47:27 <#Vim-users.jp@freenode:Shougo> 20個だと壊滅的です。
+10:48:03 <#Vim-users.jp@freenode:Shougo> しかも閉じるときに変なエラーが……。
+10:49:44 <#Vim-users.jp@freenode:ujihisa> ひー
+10:51:00 <#Vim-users.jp@freenode:kana> gc周りは:help garbadgecollect()ら辺を読めばいいよ >Shoug
+10:51:16 <#Vim-users.jp@freenode:kana> Python-likeに参照カウント+マークアンドスイープになってたはず
+10:51:19 <#Vim-users.jp@freenode:ujihisa> Vim Recipesの人と仲良くなったなどした
+10:51:36 <#Vim-users.jp@freenode:kana> 再帰参照がなければ即時解放されたと思う
+10:51:44 <#Vim-users.jp@freenode:kana> 再帰参照されてたら適当なタイミングでgcが走る
+10:52:08 <#Vim-users.jp@freenode:kana> 大量に再帰参照されてるようなデータを作ってすぐに捨てるという場合は適宜garbadgecollect()呼ぶこと、だったかな
+10:52:21 <#Vim-users.jp@freenode:kana> うろ覚えなので詳細は:help読んで確認してください
+10:53:32 <#Vim-users.jp@freenode:kana> garbageだった...
+10:53:46 <#Vim-users.jp@freenode:kana> 他の単語と混ざって覚えてるっぽい
+10:53:52 <#Vim-users.jp@freenode:kana> bandagedとかそんなの
+10:53:59 <#Vim-users.jp@freenode:kana> ハミング距離近すぎる
+10:54:36 <#Vim-users.jp@freenode:kana> んー
+10:55:19 <#Vim-users.jp@freenode:Shougo> neocomplcacheを無効にしても、明らかに遅くなりますね。
+10:55:34 <#Vim-users.jp@freenode:kana> じゃあ他の何かがおかしいとか
+10:55:53 <#Vim-users.jp@freenode:Shougo> バッファが一個の時はスクロール速度が１秒間に10行ほどだったのですが、
+10:56:08 <#Vim-users.jp@freenode:Shougo> バッファが二十個くらいだと5行に激減します。
+10:56:37 <#Vim-users.jp@freenode:kana> ああその前に「スクロール」の定義をはっきりさせましょう
+10:56:48 <#Vim-users.jp@freenode:kana> どういう操作を指して「スクロール」と言ってます?
+10:57:02 <#Vim-users.jp@freenode:kana> 話ぶりからj連打っぽい感じがする
+10:57:05 <#Vim-users.jp@freenode:Shougo> jの速度です。
+10:57:36 <#Vim-users.jp@freenode:Shougo> ただし、キー加速があるので一概には言えないのですが。
+10:57:45 <#Vim-users.jp@freenode:kana> あとはgvim? vim?
+10:57:54 <#Vim-users.jp@freenode:kana> 端末内のことだとは思いますけど
+10:57:59 <#Vim-users.jp@freenode:Shougo> gvimです。
+10:58:06 <#Vim-users.jp@freenode:kana> えー
+10:58:09 <#Vim-users.jp@freenode:kana> afk
+10:58:16 <#Vim-users.jp@freenode:Shougo> vimでも同様だと思いますが、ちょっと試してません。
+10:58:48 ! ujihisa (Remote closed the connection)
+10:58:51 <#Vim-users.jp@freenode:Shougo> バッファが使用するメモリが、バッファを閉じても解放されていないような気がします。
+10:59:05 <#Vim-users.jp@freenode:Shougo> :bdeleteで解放されるんですよね？
+10:59:49 <#Vim-users.jp@freenode:Shougo> でないと、バッファを閉じてもスクロール速度が変わらないので明らかにおかしいです。
+11:05:00 <#Vim-users.jp@freenode:Shougo> ヘルプを見ると、bdeleteではバッファが完全に削除されていないようです。
+11:05:23 <#Vim-users.jp@freenode:Shougo> バッファリストから削除され、変数やマッピングが削除されるだけみたいです。
+11:07:09 <#Vim-users.jp@freenode:Shougo> メモリを解放するなら、bunloadを使わないと駄目ですね。
+11:08:23 <#Vim-users.jp@freenode:Shougo> ちょっと実験してみます。
+11:14:23 <#Vim-users.jp@freenode:kana> その辺誤解してる人が多いな
+11:14:52 <#Vim-users.jp@freenode:kana> 特に設定してなければどのウィンドウにも表示されなくなったバッファは自動的に:bunloadされますよ
+11:15:53 <#Vim-users.jp@freenode:kana> :bdelete/:bwipeoutは普通使わない
+11:16:15 <#Vim-users.jp@freenode:kana> set hiddenされてるとか
+11:16:29 <#Vim-users.jp@freenode:kana> b:に大量のデータを突っ込んでるとか
+11:16:36 <#Vim-users.jp@freenode:kana> 疑わしいのはそこくらい
+11:16:42 <#Vim-users.jp@freenode:kana> というか
+11:16:50 <#Vim-users.jp@freenode:kana> そもそもそういうことじゃないんじゃないですか
+11:17:27 <#Vim-users.jp@freenode:kana> autocmdの定義でミスがあってBufReadやBufEnter毎に同じautocommandsが追加されてるとか
+11:17:56 <#Vim-users.jp@freenode:kana> スラッシングでも起こらない限りVimが使う程度のメモリ使用量で動作が遅くなるなんて考えづらい
+11:21:25 <#Vim-users.jp@freenode:kana> 取り敢えずその現象を再現するための最小限の設定と手順を明確にしては?
+11:21:54 <#Vim-users.jp@freenode:Shougo> set hiddenしてます。これがまずいですか？
+11:22:16 <#Vim-users.jp@freenode:Shougo> ちょっと試してみます。
+11:24:13 <#Vim-users.jp@freenode:kana> んー
+11:24:24 <#Vim-users.jp@freenode:kana> でもhiddenして影響があるのはabandonされないってだけだからなぁ
+11:24:40 <#Vim-users.jp@freenode:kana> バッファに変更加えてないならば'hidden'の有無は関係ない
+11:25:07 <#Vim-users.jp@freenode:kana> だからvim -u NONE -Nから徐々に試していった方がいいと思う
+11:25:47 <#Vim-users.jp@freenode:kana> 次にvim -u NONE -N -c 'runtime! plugin/**/*.vim'とか
+11:37:22 <#Vim-users.jp@freenode:Shougo> ユーザプラグインを読み込むと、バッファを開くごとに徐々に重くなるようです。
+11:37:31 <#Vim-users.jp@freenode:Shougo> neocomplcacheは関係ないですね。
+11:40:03 <#Vim-users.jp@freenode:kana> じゃあプラグインのどれかが悪いと
+11:40:33 <#Vim-users.jp@freenode:kana> 次はvim -u NONE -N -c 'runtime! plugin/{どれか一個}.vim'かな
+11:41:25 <#Vim-users.jp@freenode:kana> 標準添付のものが悪いということはないような気がするので、まずは自分でインストールしたものから試しますかね
+11:41:33 <#Vim-users.jp@freenode:Shougo> 候補は34個もあるんですよね……。
+11:41:55 <#Vim-users.jp@freenode:kana> じゃあ二分探索で
+11:42:19 <#Vim-users.jp@freenode:kana> アルファベット順にファイルを並べて最初の17個をロードした状態で試す
+11:42:33 <#Vim-users.jp@freenode:kana> それで現象が起こるならその17個のどれかにあるはず
+11:42:44 <#Vim-users.jp@freenode:kana> さらに最初の8個くらいをロードした状態で試す
+11:42:46 <#Vim-users.jp@freenode:kana> 以下略
+11:43:09 <#Vim-users.jp@freenode:kana> 原因となるプラグインが1つだけであるという仮定があるので注意
+11:43:37 <#Vim-users.jp@freenode:kana> 2つ以上が絡んでる場合はどこかで現象が起こらなくなるけれど、どのグループに怪しい奴がいるかは絞り込めるはず
+11:44:18 <#Vim-users.jp@freenode:kana> 「2つ以上が絡んでる場合」というのは、それらがロードされた初めて現象が起こるようになる、という意味です
+11:44:25 <#Vim-users.jp@freenode:kana> s/された/されて/
+11:47:09 <#Vim-users.jp@freenode:Shougo> runtimeとユーザプラグインだけ読み込んだ場合にするにはどうすればよいですか？
+11:47:17 <#Vim-users.jp@freenode:Shougo> まずはそれから試そうと思います。
+11:48:29 <#Vim-users.jp@freenode:kana> nn-
+11:48:38 <#Vim-users.jp@freenode:kana> runtimepathいじることかな
+11:48:58 <#Vim-users.jp@freenode:kana> set runtimepath=~/.vim,~/.vim/afterとかそういうのが一手dakedo
+11:49:09 <#Vim-users.jp@freenode:kana> [
+11:49:16 <#Vim-users.jp@freenode:kana> 「runtime」って何を指してます?
+11:49:32 <#Vim-users.jp@freenode:kana> 標準添付のプラグインやその他のファイル群?
+11:49:37 <#Vim-users.jp@freenode:Shougo> Vim標準のランタイムです。
+11:49:49 <#Vim-users.jp@freenode:kana> つまり$VIMRUNTIME下にあるもの
+11:49:58 <#Vim-users.jp@freenode:Shougo> まずは自分のpluginが原因なのか調べたいので。
+11:50:16 <#Vim-users.jp@freenode:kana> vim -u NONEだとプラグインはロードされないよ
+11:50:48 <#Vim-users.jp@freenode:kana> だから~/.vim/plugin/*.vimを見て適宜-c 'runtime plugini/foo.vim'を追加すれば再現には十分じゃないですかね
+11:51:05 <#Vim-users.jp@freenode:kana> あ、runtimeの!の有無は重要
+11:52:18 ukstudio_aw -> ukstudio
+12:08:25 <#Vim-users.jp@freenode:kana> うおお
+12:08:49 <#Vim-users.jp@freenode:kana> <Space>と<S-Space>がGUI版だと区別されるので微妙に不便
+12:09:07 <#Vim-users.jp@freenode:kana> Allmap <S-Space>  <Space>した
+12:13:19 <#Vim-users.jp@freenode:ukstudio> hi
+12:13:32 <#Vim-users.jp@freenode:kana> hihi
+12:13:39 <#Vim-users.jp@freenode:ukstudio> Vim Hacksなんですけど
+12:13:46 <#Vim-users.jp@freenode:ukstudio> エントリ中に使う画像って
+12:13:54 <#Vim-users.jp@freenode:ukstudio> gyazoとかのキャプチャツール依存でいいんですか?
+12:14:09 <#Vim-users.jp@freenode:ukstudio> ちょっと気になった。
+12:15:51 <#Vim-users.jp@freenode:kana> 安全のために
+12:16:07 <#Vim-users.jp@freenode:kana> vim-users.jpにアップロードしておいてそれを参照した方がいいということ?
+12:16:32 <#Vim-users.jp@freenode:ukstudio> ですです
+12:16:40 <#Vim-users.jp@freenode:kana> アップロード機能自体はwordpressにありましたよね(使ったことないのでどんな感じなのかは知らない
+12:16:46 <#Vim-users.jp@freenode:ukstudio> あるんですけど
+12:16:50 <#Vim-users.jp@freenode:ukstudio> 多分fkに頼んで
+12:16:57 <#Vim-users.jp@freenode:ukstudio> パーミッションを直してもらわないといけない感じ
+12:17:17 <#Vim-users.jp@freenode:ukstudio> 普通に投稿画面に画像アップロードのボタンはあります
+12:17:28 <#Vim-users.jp@freenode:kana> なんだって
+12:17:35 <#Vim-users.jp@freenode:kana> 知らなかった
+12:17:37 <#Vim-users.jp@freenode:ukstudio> いやまぁ
+12:17:45 <#Vim-users.jp@freenode:ukstudio> どっちかと言うと安全の為というよりは
+12:17:57 <#Vim-users.jp@freenode:ukstudio> どっちなのか確認したかった程度なんですけど
+12:18:19 <#Vim-users.jp@freenode:kana> 今のところ特に方針は存在しないですね
+12:18:50 <#Vim-users.jp@freenode:ukstudio> ほいほい
+12:18:56 <#Vim-users.jp@freenode:ukstudio> まぁそれならそれで。
+12:19:20 <#Vim-users.jp@freenode:kana> なるべくvim-users.jpにアップロードしておいた方が良いのかな。どうなのかな
+12:19:40 <#Vim-users.jp@freenode:ukstudio> まぁアップロードしておくと
+12:19:48 <#Vim-users.jp@freenode:ukstudio> バックアップが容易ってぐらいですね
+12:20:01 <#Vim-users.jp@freenode:kana> アップロードした画像とその画像が参照されている記事へのリンクの一覧なんて表示できるのかな
+12:20:14 <#Vim-users.jp@freenode:kana> あると面白そう(見た目的な意味で
+12:20:20 <#Vim-users.jp@freenode:ukstudio> 画像の一覧はあるけど
+12:20:24 <#Vim-users.jp@freenode:ukstudio> 記事の一覧はどうだろう
+12:20:32 <#Vim-users.jp@freenode:kana> なんだっけ
+12:20:45 <#Vim-users.jp@freenode:ukstudio> あ
+12:20:46 <#Vim-users.jp@freenode:ukstudio> あるある
+12:20:52 <#Vim-users.jp@freenode:kana> amebloはそんな感じに画像を表示するページが用意されてる
+12:21:04 <#Vim-users.jp@freenode:kana> 私がイメージしてたのはそんなの
+12:21:06 <#Vim-users.jp@freenode:kana> あるのか
+12:21:27 <#Vim-users.jp@freenode:ukstudio> amebloがわからないけど
+12:21:28 <#Vim-users.jp@freenode:ukstudio> http://img.skitch.com/20090529-f3n2y42t7g3b94krhguhnwu9i1.jpg
+12:21:30 <#Vim-users.jp@freenode:ukstudio> こんな感じ
+12:22:05 <#Vim-users.jp@freenode:kana> それってログインしないと見れない?
+12:22:19 <#Vim-users.jp@freenode:ukstudio> みれないですね
+12:22:19 <#Vim-users.jp@freenode:kana> 見た感じ管理画面の一部っぽい気が
+12:22:55 <#Vim-users.jp@freenode:ukstudio> 管理画面の一部です
+12:23:04 <#Vim-users.jp@freenode:ukstudio> あめぶろは一般ユーザでもみれる?
+12:23:05 ! zegenvs ("http://www.mibbit.com ajax IRC Client")
+12:23:07 <#Vim-users.jp@freenode:kana> ふーむ
+12:23:08 <#Vim-users.jp@freenode:kana> http://ameblo.jp/x-hard/image-10264464502-10170469859.html
+12:23:14 <#Vim-users.jp@freenode:kana> amebloのはこんなの
+12:23:24 <#Vim-users.jp@freenode:ukstudio> なるなる
+12:24:12 <#Vim-users.jp@freenode:kana> これだと一枚一枚なんだけど
+12:24:45 <#Vim-users.jp@freenode:kana> 例えば1ページ50個みたいな感じでまとめて画像が見れたら面白いかなーと
+12:24:55 <#Vim-users.jp@freenode:ukstudio> なるほどー
+12:25:04 <#Vim-users.jp@freenode:ukstudio> プラグインで存在する可能性は否めないけど
+12:25:07 <#Vim-users.jp@freenode:ukstudio> デフォは多分なさげ
+12:25:15 <#Vim-users.jp@freenode:kana> うんむ
+12:25:58 <#Vim-users.jp@freenode:kana> ある程度スクリーンショットが溜まったら面白そうなのでやってみたい
+12:44:45 <#Vim-users.jp@freenode:Shougo> バッファを多数開くと重くなるのは、statuslineが原因っぽいです。
+12:54:03 <#Vim-users.jp@freenode:ukstudio> vimrcにもgvimrcにもnoswapfile書いてあるのにMacVimがhoge.txt~を作りやがる
+13:07:30 <#Vim-users.jp@freenode:Shougo> set nobackupした方がよいです。
+13:07:59 <#Vim-users.jp@freenode:ukstudio> あ
+13:08:01 <#Vim-users.jp@freenode:Shougo> noswapfileはスワップを作らないだけなので、バックアップファイルとは関係ないです。
+13:08:01 <#Vim-users.jp@freenode:ukstudio> あぁ、そうか
+13:08:02 <#Vim-users.jp@freenode:ukstudio> なるほど
+13:08:09 <#Vim-users.jp@freenode:ukstudio> 勘違いしてた
+13:08:12 <#Vim-users.jp@freenode:ukstudio> ありがとうございます
+13:10:34 <#Vim-users.jp@freenode:Shougo> .vimrcにてset cursorlineも無効にしたら、だいぶ早くなりました。
+13:10:56 <#Vim-users.jp@freenode:Shougo> ひとまず、このまま使ってみます。
+13:11:57 <#Vim-users.jp@freenode:ukstudio> cursorlineは個人的に必須なんですよねぇ
+13:13:30 <#Vim-users.jp@freenode:Shougo> 私も気に入っていたんですけど、あまりに重くなります。
+13:14:11 <#Vim-users.jp@freenode:Shougo> カーソル移動が概算1.5倍くらい違うんじゃないでしょうか。
+13:25:40 ! qnighy (clarke.freenode.net irc.freenode.net)
+13:32:06 <#Vim-users.jp@freenode:ujihisa> kitack
+13:49:10 >#Vim-users.jp@freenode:from_kyushu< > パーミッションを直してもらわないといけない感じ
+13:49:24 >#Vim-users.jp@freenode:from_kyushu< あれ、随分と前に弄った記憶があるのだけど
+13:49:30 >#Vim-users.jp@freenode:from_kyushu< なってないっけ
+13:55:47 <#Vim-users.jp@freenode:ujihisa> !
+13:56:31 >#Vim-users.jp@freenode:from_kyushu< アップロード先ディレクトリどこにしてたっけなー
+13:58:42 >#Vim-users.jp@freenode:from_kyushu< そもそもディレクトリ掘っていなかった件
+13:58:50 >#Vim-users.jp@freenode:from_kyushu< ごめんなさい、今uploadできるようにしました
+13:59:26 <#Vim-users.jp@freenode:ujihisa> w
+13:59:28 <#Vim-users.jp@freenode:ujihisa> fk++
+13:59:38 <#Vim-users.jp@freenode:ujihisa> ujihisa分はいまのところgyazoにうぷしてて
+13:59:52 <#Vim-users.jp@freenode:ujihisa> 将来的にfkサーバに統合するなら、そのときにまとめてうぷするスクリプト書くかあ
+14:00:24 >#Vim-users.jp@freenode:from_kyushu< アップロードする手間があるんだよねー
+14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみたく簡単にできれば良いのだけども
+14:10:39 >#Vim-users.jp@freenode:from_kyushu< WPの機能として、URLから画像を取り込む機能があるみたいなので
+14:10:53 >#Vim-users.jp@freenode:from_kyushu< 今ばらばらに公開されているものは比較的簡単に統一可能ぽい
+14:11:10 <#Vim-users.jp@freenode:kana> he-
+14:11:58 <#Vim-users.jp@freenode:kana> 'cursorline'はとろいからBramさんは敬遠していたけど要望がかなりあったのでversion7で追加されたという経緯があります >Shougo
+14:12:16 <#Vim-users.jp@freenode:kana> なんでstatuslineなんだろ
+14:12:40 <#Vim-users.jp@freenode:kana> neoconのキャッシュ率表示が入ってるから? >Shougo
+14:12:42 <#Vim-users.jp@freenode:kana> ああ
+14:12:46 <#Vim-users.jp@freenode:kana> そうだ
+14:13:15 <#Vim-users.jp@freenode:kana> 確かカーソル移動でも再計算が発生したと思う >'statusline'で表示される内容
+14:13:34 <#Vim-users.jp@freenode:kana> 'tabline'だとそういうのはない
+14:14:15 <#Vim-users.jp@freenode:Shougo> statuslineは自作の関数が呼ばれるようにしていて、それがあまりに重かったので、
+14:14:23 <#Vim-users.jp@freenode:Shougo> キャッシュするようにしました。
+14:14:33 <#Vim-users.jp@freenode:kana> http://whileimautomaton.net/2008/02/24/23/42/00/diary
+14:14:40 <#Vim-users.jp@freenode:kana> じゃあ問題は解決?
+14:15:01 <#Vim-users.jp@freenode:kana> 重かったのはその関数内での値の算出がバッファ数に比例していたと?
+14:18:49 <#Vim-users.jp@freenode:Shougo> そういうことです。ここまで重くなるとは思っていませんでしたが。
+14:19:06 <#Vim-users.jp@freenode:Shougo> 具体的にはバッファのリストを計算していました。
+14:19:34 <#Vim-users.jp@freenode:kana> ふむふむ
+14:19:53 <#Vim-users.jp@freenode:kana> 'statusline'じゃなくて'tabline'使うのはどうですか
+14:23:22 <#Vim-users.jp@freenode:kana> アメリカンからfeedbackきてた
+14:23:35 <#Vim-users.jp@freenode:kana> TODO: reply
+14:24:43 <#Vim-users.jp@freenode:Shougo> tablineはタブを使っていないと表示されないのが難点ですね。
+14:24:53 <#Vim-users.jp@freenode:kana> え?
+14:25:04 <#Vim-users.jp@freenode:kana> set showtabline=2
+14:25:29 <#Vim-users.jp@freenode:Shougo> あ、表示されるようになりました。ありがとうございます。
+14:25:56 <#Vim-users.jp@freenode:Shougo> タブの情報を表示するのと、どっちがいいかな……。
+14:26:21 <#Vim-users.jp@freenode:Shougo> 現在tablineではタブで開いているバッファを表示するようにしているんです。
+14:27:19 <#Vim-users.jp@freenode:kana> ふむ
+14:27:22 <#Vim-users.jp@freenode:kana> どんなのです?
+14:28:59 <#Vim-users.jp@freenode:Shougo> http://gist.github.com/119798
+14:29:05 <#Vim-users.jp@freenode:Shougo> こんな感じです。
+14:32:28 <#Vim-users.jp@freenode:Shougo> tablineはどんなときに更新されるんですか？
+14:32:45 <#Vim-users.jp@freenode:kana> 上のURIに示した通り
+14:33:06 <#Vim-users.jp@freenode:kana> statusline更新タイミング - カーソル移動 な感じ
+14:34:27 <#Vim-users.jp@freenode:Shougo> それは便利に使えそうですね。
+14:34:45 <#Vim-users.jp@freenode:kana> ほほう
+14:34:50 <#Vim-users.jp@freenode:kana> 自分はこんなの http://gyazo.com/9376e4b7256599c6dcd8e8cda172a3b7.png
+14:35:04 <#Vim-users.jp@freenode:kana> 色が変なのは無視してください
+14:35:16 <#Vim-users.jp@freenode:kana> というか
+14:35:32 <#Vim-users.jp@freenode:kana> なんか私のと同じにおいがするコードだ >http://gist.github.com/119798
+14:37:03 <#Vim-users.jp@freenode:Shougo> あ、kanaさんの設定を参考にして、多少修正しただけです。
+14:41:09 <#Vim-users.jp@freenode:Shougo> しかし、私の設定だとアンダーラインが表示されてないですね。
+14:41:17 <#Vim-users.jp@freenode:Shougo> 何でだろう？
+14:42:00 <#Vim-users.jp@freenode:kana> highlightの設定変えてるからですよ
+14:42:21 <#Vim-users.jp@freenode:ujihisa> !
+14:42:23 <#Vim-users.jp@freenode:kana> カレントなタブページはアンダーラインを引くようにしている
+14:42:40 <#Vim-users.jp@freenode:kana> 本当はもうちょっと色合い変えてるんですけどね
+14:43:03 <#Vim-users.jp@freenode:kana> いま使ってるGNU screenが256色対応してないので色合いが変
+14:44:31 <#Vim-users.jp@freenode:kana> このあたりかな http://github.com/kana/config/blob/40ad01c86e1ddd8b8a973ad3f7b1c88c86ad40bc/vim/dot.vimrc#L2015
+14:47:16 <#Vim-users.jp@freenode:kana> 昨日言っていたきっかり同じインデント量の行を選択するテキストオブジェクトのキーバインドにaIとiIはどうかな、と思いついた(大文字のi)
+14:48:23 <#Vim-users.jp@freenode:ujihisa> al!
+14:48:25 <#Vim-users.jp@freenode:ujihisa> a1!
+14:53:29 <#Vim-users.jp@freenode:kana> 1か
+14:53:40 <#Vim-users.jp@freenode:kana> 確かに数字は空いている……
+14:56:13 <#Vim-users.jp@freenode:ujihisa> 数字イケる...!
+14:56:53 <#Vim-users.jp@freenode:ujihisa> 日本語の1の読み方的な理由でインデントは1とか
+14:58:18 <#Vim-users.jp@freenode:kana> 意味が分からない!
+14:59:22 <#Vim-users.jp@freenode:kana> ああ、九九で1*1=1を「いんいちがいち」と読む = 最初の2文字がインで共通だから?
+14:59:33 <#Vim-users.jp@freenode:kana> くるしいすぎる
+15:04:48 <#Vim-users.jp@freenode:kana> タイトルにだまされた http://stargate.cnl.tuke.sk/~mirek/homepage/automatické-odsadzovanie-textu-vo-vimku
+15:06:44 <#Vim-users.jp@freenode:Shougo> ただのテキスト整形の話ですね。
+15:07:09 <#Vim-users.jp@freenode:Shougo> kuが紹介されている？　と一瞬勘違いしました。
+15:15:51 <#Vim-users.jp@freenode:ujihisa> kanaさんの推理力が高すぎる
+15:15:55 <#Vim-users.jp@freenode:Shougo> tablineを変更するようにしました。しばらくこれを使ってみます。
+15:24:06 <#Vim-users.jp@freenode:Shougo> 私はタブを使わないので、こちらの方が良さそうです。
+15:25:07 <#Vim-users.jp@freenode:Shougo> 現在こんな感じ。http://gyazo.com/05fb1f456324dae355d74ee0f8b9d977.png
+15:25:29 <#Vim-users.jp@freenode:Shougo> そういえば、Vim-users.jpに画像をアップロードできるようになったので、
+15:25:55 <#Vim-users.jp@freenode:Shougo> Hack #14に画像を追加しておきました。
+15:26:09 <#Vim-users.jp@freenode:kana> ++
+15:26:16 <#Vim-users.jp@freenode:Shougo> 多少は参考になるといいなと思います。
+15:26:18 <#Vim-users.jp@freenode:kana> さあTwitterで宣伝
+15:26:26 <#Vim-users.jp@freenode:kana> RTの嵐
+15:26:32 <#Vim-users.jp@freenode:kana> 高まるShougo熱
+15:27:00 <#Vim-users.jp@freenode:Shougo> RTって何でしょう？
+15:27:01 <#Vim-users.jp@freenode:kana> All about completion in Vim出版
+15:27:05 <#Vim-users.jp@freenode:kana> Retweet
+15:27:37 <#Vim-users.jp@freenode:kana> 面白い発言があったときにそれをコピーして発言することを指すTwitterスラング
+15:28:00 <#Vim-users.jp@freenode:Shougo> 初めて知りました。Twitterで宣伝しておきます。
+15:28:12 <#Vim-users.jp@freenode:kana> http://search.twitter.com/search?q=rt+%23vim
+15:28:16 <#Vim-users.jp@freenode:kana> 例
+15:28:34 <#Vim-users.jp@freenode:Shougo> ちなみに、Hack#14のファイル名補完を参考にして、neocomplcacheではファイル名補完が追加されています。
+15:38:14 <#Vim-users.jp@freenode:Shougo> The Art of Completionというタイトルを思いついた。
+15:38:20 <#Vim-users.jp@freenode:Shougo> 誰か書いてくれないかな。
+15:38:54 <#Vim-users.jp@freenode:kana> 言い出しっぺの法則
+15:39:09 <#Vim-users.jp@freenode:kana> 全然関係ないですがThe Art of Metaobject Protocolなら持ってる
+15:39:58 <#Vim-users.jp@freenode:Shougo> さすがに自分で書くほどのネタは持っていないという。
+15:40:12 <#Vim-users.jp@freenode:Shougo> neocomplcacheの仕組みくらいなら書けそうですけど。
+15:41:08 <#Vim-users.jp@freenode:kana> 新連載「The Art of Completion」 Shougo著 2009/06/01より配信開始
+15:46:21 <#Vim-users.jp@freenode:Shougo> それはさすがに……。
+15:46:43 <#Vim-users.jp@freenode:Shougo> VimHacksのネタが尽きたら何かしらやるかもしれません。
+15:47:03 <#Vim-users.jp@freenode:kana> Shougo先生の作品が読めるのはvim-users.jpだけ!
+15:47:07 <#Vim-users.jp@freenode:kana> これだ
+15:47:27 <#Vim-users.jp@freenode:Shougo> Vim-users.jpに連載するわけですね、分かります。
+15:47:34 <#Vim-users.jp@freenode:ujihisa> The Art of Completion気になりまくり
+15:48:10 <#Vim-users.jp@freenode:Shougo> ん～～。ネタはあったかな？
+15:49:28 <#Vim-users.jp@freenode:kana> 週刊vim-users.jp
+15:49:55 <#Vim-users.jp@freenode:kana> 毎週付属のパーツを集めると暗闇で光るティラノザウルス骨格模型が!
+15:51:28 <#Vim-users.jp@freenode:ujihisa> 恐怖のアンケートシステム
+15:51:41 <#Vim-users.jp@freenode:ujihisa> ロケットで突き抜けろ!
+15:54:14 <#Vim-users.jp@freenode:kana> XMLの属性を表すテキストオブジェクトが欲しい
+15:54:52 <#Vim-users.jp@freenode:kana> axaとかどうだろ(キーバインド
+15:54:57 <#Vim-users.jp@freenode:kana> ixa
+15:55:23 <#Vim-users.jp@freenode:kana> 今のところXML編集で必要そうな箇所にぱぱっと移動する機能自体は作ってあるんだけど
+15:55:32 <#Vim-users.jp@freenode:kana> caxaとかしたい
+15:55:37 <#Vim-users.jp@freenode:ujihisa> cool
+15:55:42 <#Vim-users.jp@freenode:kana> textobj-xmlフラグ
+15:55:52 <#Vim-users.jp@freenode:ujihisa> textobj-sex
+15:55:58 <#Vim-users.jp@freenode:ujihisa> S式
+15:56:24 <#Vim-users.jp@freenode:kana> 全然関係ないですがHTML編集中にomni completionするとHTMLのタグ・属性だけでなく、onclick=""的なところだったらjavascriptの補完になることぬ気付いた
+15:56:35 <#Vim-users.jp@freenode:kana> CSSがよしなに補完されることは知ってたけど
+15:56:45 <#Vim-users.jp@freenode:kana> ちょっとびっくりした
+15:56:58 <#Vim-users.jp@freenode:kana> jquery用補完とかないかな
+15:57:54 <#Vim-users.jp@freenode:Shougo> HTMLの補完は結構頭がよいですよ。
+15:58:34 <#Vim-users.jp@freenode:ujihisa> mjd
+15:58:41 <#Vim-users.jp@freenode:ujihisa> omcom強すぎる
+15:59:03 <#Vim-users.jp@freenode:ujihisa> Artだ!
+16:03:57 <#Vim-users.jp@freenode:Shougo> PHPの補完でも、<?phpに囲まれていなかったら、HTMLの補完になります。
+16:04:18 <#Vim-users.jp@freenode:Shougo> 例えば、JavaScriptの補完は<scriptに囲まれたところで有効です。
+16:04:33 <#Vim-users.jp@freenode:kana> javascriptの方は補完しようがなかったら適当に属性とかメソッドでそれっぽいのを候補に出してきて吹いた
+16:04:35 <#Vim-users.jp@freenode:Shougo> やはり文脈をきちんと解析すると便利ですよね。
+16:05:05 <#Vim-users.jp@freenode:Shougo> その代わりに若干重いのが難点です。
+16:05:43 <#Vim-users.jp@freenode:kana> http://gyazo.com/45a35de9b9305d1f27c05b3b6df516ad.png
+16:05:46 <#Vim-users.jp@freenode:kana> こんなん
+16:06:18 <#Vim-users.jp@freenode:kana> 潔さを感じる
+16:07:10 <#Vim-users.jp@freenode:Shougo> 解析できないときは、人間に構文解析してもらうんでしょう。
+16:07:31 <#Vim-users.jp@freenode:Shougo> neocomplcacheはわざと文法解析はしていません。
+16:07:56 <#Vim-users.jp@freenode:Shougo> 文脈だけ解析して、あとは人間にやってもらっています。
+16:08:32 <#Vim-users.jp@freenode:Shougo> 機能は制限されますが、その代わり様々な言語や文脈に対応できます。
+16:19:12 <#Vim-users.jp@freenode:Shougo> vimshellの非同期実行がかなり良くなってきました。
+16:19:31 <#Vim-users.jp@freenode:Shougo> 来週にはリリースしておきたいですね。
+16:19:41 ! Shougo ("Leaving...")
+16:21:16 <#Vim-users.jp@freenode:ujihisa> おおお
+17:18:07 ! ujihisa ("Leaving...")
+18:55:15 <#Vim-users.jp@freenode:kana> ふんむー
+18:55:15 <#Vim-users.jp@freenode:kana> atが
+18:55:37 <#Vim-users.jp@freenode:kana> atが行単位じゃないケースが多くて不便
+18:55:51 <#Vim-users.jp@freenode:kana> yat -> pすると悲しいことになる
+18:56:07 <#Vim-users.jp@freenode:kana> yVat -> p すればいいけどちょっと面倒
+19:16:46 <#Vim-users.jp@freenode:kana> お http://vivaotux.blogspot.com/2009/01/vai-um-plugin.html
+19:17:00 <#Vim-users.jp@freenode:kana> 今度は辺りっぽい
+19:17:12 <#Vim-users.jp@freenode:kana> s//当たり/
+19:18:17 <#Vim-users.jp@freenode:kana> ああそうだ
+19:18:39 <#Vim-users.jp@freenode:kana> "..." とか (...) とかでいちいち使い分けるのが面倒なのでよしなにしてくれるtextobjectが欲しい
+19:18:58 <#Vim-users.jp@freenode:kana> iqとかaqとかで最も内側のそれっぽい領域を選ぶの
+19:19:08 <#Vim-users.jp@freenode:kana> ...これ年始くらいのときにも同じこと言った気がする
+19:19:14 <#Vim-users.jp@freenode:kana> textobj-quotesとか、そんなの
+19:19:34 <#Vim-users.jp@freenode:kana> 欲しいのは欲しいんだけど処理をどうするのかが問題
+19:23:44 <#Vim-users.jp@freenode:kana> なんとなく思いついた
+19:23:48 <#Vim-users.jp@freenode:kana> けど上手くいくかなぁ
+19:24:13 <#Vim-users.jp@freenode:kana> 組み込みのその手のやつを全部試して一番狭い領域だったやつを選ぶという方法
+20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")
+20:05:40 ukstudio -> ukstudio_aw
