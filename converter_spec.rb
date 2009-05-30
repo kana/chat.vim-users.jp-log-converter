@@ -48,7 +48,7 @@ describe Converter, 'converting a join message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_JOIN
     cline = c.cline_of_join_from_pline pline, 1
-    cline.should == '<li id="L1" class="join"><span class="time">01:09:27</span> <span class="nick">thinca</span> <span class="text">has joined</span></li>'
+    cline.should == '<li id="L1" class="join"><span class="time">01:09:27</span> <span class="nick">thinca</span> <span class="text">has joined</span></li>' + "\n"
   end
 end
 
@@ -85,7 +85,7 @@ describe Converter, 'converting a normal message without specials' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_NORMAL
     cline = c.cline_of_msg_from_pline pline, 5
-    cline.should == '<li id="L5" class="msg"><span class="time">03:17:42</span> <span class="nick">kana</span> <span class="text">やることやった感</span></li>'
+    cline.should == '<li id="L5" class="msg"><span class="time">03:17:42</span> <span class="nick">kana</span> <span class="text">やることやった感</span></li>' + "\n"
   end
 end
 
@@ -122,7 +122,7 @@ describe Converter, 'converting another normal message without specials' do  #{{
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_NORMAL2
     cline = c.cline_of_msg_from_pline pline, 6
-    cline.should == '<li id="L6" class="msg"><span class="time">14:00:37</span> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>'
+    cline.should == '<li id="L6" class="msg"><span class="time">14:00:37</span> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>' + "\n"
   end
 end
 
@@ -159,7 +159,7 @@ describe Converter, 'converting an evil message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_NORMAL3
     cline = c.cline_of_msg_from_pline pline, 12
-    cline.should == %q{<li id="L12" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&apos;</span></li>}
+    cline.should == %q{<li id="L12" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&apos;</span></li>} + "\n"
   end
 end
 
@@ -196,7 +196,7 @@ describe Converter, 'converting a normal message with an image link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_IMAGE
     cline = c.cline_of_msg_from_pline pline, 7
-    cline.should == '<li id="L7" class="msg"><span class="time">03:22:04</span> <span class="nick">kana</span> <span class="text">http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png</span></li>'
+    cline.should == '<li id="L7" class="msg"><span class="time">03:22:04</span> <span class="nick">kana</span> <span class="text">http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png</span></li>' + "\n"
   end
 end
 
@@ -233,7 +233,7 @@ describe Converter, 'converting a normal message with a normal link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_NORMAL
     cline = c.cline_of_msg_from_pline pline, 8
-    cline.should == '<li id="L8" class="msg"><span class="time">03:17:35</span> <span class="nick">kana</span> <span class="text">よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary</span></li>'
+    cline.should == '<li id="L8" class="msg"><span class="time">03:17:35</span> <span class="nick">kana</span> <span class="text">よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary</span></li>' + "\n"
   end
 end
 
@@ -270,7 +270,7 @@ describe Converter, 'converting a normal message with a paste link' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_PASTE
     cline = c.cline_of_msg_from_pline pline, 9
-    cline.should == '<li id="L9" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text">http://gist.github.com/119798</span></li>'
+    cline.should == '<li id="L9" class="msg"><span class="time">14:28:59</span> <span class="nick">Shougo</span> <span class="text">http://gist.github.com/119798</span></li>' + "\n"
   end
 end
 
@@ -307,7 +307,7 @@ describe Converter, 'converting a normal message with multiple links' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_MSG_LINK_ALL_TYPES
     cline = c.cline_of_msg_from_pline pline, 11
-    cline.should == '<li id="L11" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">foo http://whileimautomaton.net/2009/05/29/02/37/54/diary bar http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png baz http://gist.github.com/119798 hehehe</span></li>'
+    cline.should == '<li id="L11" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">foo http://whileimautomaton.net/2009/05/29/02/37/54/diary bar http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png baz http://gist.github.com/119798 hehehe</span></li>' + "\n"
   end
 end
 
@@ -342,7 +342,7 @@ describe Converter, 'converting a nick message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_NICK
     cline = c.cline_of_nick_from_pline pline, 2
-    cline.should == '<li id="L2" class="nick"><span class="time">09:34:25</span> <span class="text"><span class="old-nick">ukstudio</span> is now as known as <span class="new-nick">ukstudio_aw</span></span></li>'
+    cline.should == '<li id="L2" class="nick"><span class="time">09:34:25</span> <span class="text"><span class="old-nick">ukstudio</span> is now as known as <span class="new-nick">ukstudio_aw</span></span></li>' + "\n"
   end
 end
 
@@ -375,7 +375,7 @@ describe Converter, 'converting a part message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_PART
     cline = c.cline_of_part_from_pline pline, 3
-    cline.should == '<li id="L3" class="part"><span class="time">20:02:15</span> <span class="nick">kana</span> <span class="text">has left</span></li>'
+    cline.should == '<li id="L3" class="part"><span class="time">20:02:15</span> <span class="nick">kana</span> <span class="text">has left</span></li>' + "\n"
   end
 end
 
@@ -412,7 +412,7 @@ describe Converter, 'converting a topic message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_TOPIC
     cline = c.cline_of_topic_from_pline pline, 4
-    cline.should == '<li id="L4" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.</span></span></li>'
+    cline.should == '<li id="L4" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.</span></span></li>' + "\n"
   end
 end
 
@@ -445,7 +445,7 @@ describe Converter, 'converting an unsuported message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_UNSUPPORTED
     cline = c.cline_of_unsupported_from_pline pline, 10
-    cline.should == '<li id="L10" class="unsupported"><span class="time">00:01:02</span> <span class="text">Unsupported format</span></li>'
+    cline.should == '<li id="L10" class="unsupported"><span class="time">00:01:02</span> <span class="text">Unsupported format</span></li>' + "\n"
   end
 end
 
@@ -474,7 +474,7 @@ describe Converter, 'converting an invalid message' do  #{{{1
     c = Converter.new
     pline = c.pline_from_rline RLINE_INVALID
     cline = c.cline_of_invalid_from_pline pline, 10
-    cline.should == '<li id="L10" class="invalid"><span class="text">Invalid format</span></li>'
+    cline.should == '<li id="L10" class="invalid"><span class="text">Invalid format</span></li>' + "\n"
   end
 end
 

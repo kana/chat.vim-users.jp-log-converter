@@ -11,7 +11,7 @@ require 'cgi'
 
 
 class Converter
-  TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>'
+  TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>' + "\n"
 
   TEMPLATE_INVALID_CONTENT = '<span class="text">%s</span>'
   TEMPLATE_JOIN_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has joined</span>'
