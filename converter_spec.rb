@@ -495,15 +495,19 @@ describe Converter, 'main with a valid argument' do  #{{{1
   it 'should return 0' do
     original_stdin = $stdin
       $stdin = StringIO.new [
+        RLINE_INVALID,
         RLINE_JOIN,
-        RLINE_MSG_NORMAL,
-        RLINE_MSG_NORMAL2,
+        RLINE_MSG_LINK_ALL_TYPES,
         RLINE_MSG_LINK_IMAGE,
         RLINE_MSG_LINK_NORMAL,
         RLINE_MSG_LINK_PASTE,
+        RLINE_MSG_NORMAL,
+        RLINE_MSG_NORMAL2,
+        RLINE_MSG_NORMAL3,
         RLINE_NICK,
         RLINE_PART,
         RLINE_TOPIC,
+        RLINE_UNSUPPORTED,
         ''
       ].join("\n")
       Converter.new.main(['2009-05-30']).should == 0

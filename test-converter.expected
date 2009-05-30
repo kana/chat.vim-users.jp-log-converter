@@ -1,10 +1,10 @@
 ...........................................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
 .dummy header
-01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode
+Invalid format
 0
-03:17:42 <#Vim-users.jp@freenode:kana> やることやった感
+01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode
 1
-14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみたく簡単にできれば良いのだけども
+00:01:02 <#Vim-users.jp@freenode:kana> foo http://whileimautomaton.net/2009/05/29/02/37/54/diary bar http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png baz http://gist.github.com/119798 hehehe
 2
 03:22:04 <#Vim-users.jp@freenode:kana> http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png
 3
@@ -12,12 +12,20 @@
 4
 14:28:59 <#Vim-users.jp@freenode:Shougo> http://gist.github.com/119798
 5
-09:34:25 ukstudio -> ukstudio_aw
+03:17:42 <#Vim-users.jp@freenode:kana> やることやった感
 6
-20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")
+14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみたく簡単にできれば良いのだけども
 7
-13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.
+00:01:02 <#Vim-users.jp@freenode:kana> &"<>'
 8
+09:34:25 ukstudio -> ukstudio_aw
+9
+20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")
+10
+13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.
+11
+00:01:02 Unsupported format
+12
 dummy footer
 ..
 
