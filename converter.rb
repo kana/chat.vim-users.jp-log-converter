@@ -157,9 +157,14 @@ class Converter
     return 0
   end
 
-  def make_neat_links_in(sanitized_string)  # FIXME: NIY - neat stuffs
+  def make_neat_links_in(sanitized_string)
     return sanitized_string.gsub(URI.regexp ['http']) { |uri|
-      '<a href="%s">%s</a>' % [uri, uri]
+      # FIXME: translate a link to a paste service
+      if uri_image_p uri
+        '<a href="%s"><img src="%s" alt="%s"/></a>' % [uri, uri, uri]
+      else
+        '<a href="%s">%s</a>' % [uri, uri]
+      end
     }
   end
 
@@ -214,6 +219,10 @@ class Converter
 
   def sanitize(*args)
     return CGI.escapeHTML(*args).gsub(/'/, '&#39;')
+  end
+
+  def uri_image_p(uri)
+    return /\.(gif|jpg|png)$/ =~ uri
   end
 
   def usage()

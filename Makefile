@@ -13,7 +13,8 @@ test-converter.output: converter_spec.rb converter.rb
 	spec $< | grep -v 'Finished in' >$@
 
 test-output.ok: test-output.html
-	htmllint -accessibility -religious -d mailto-link,navigation-link \
+	htmllint -accessibility -religious \
+	         -d img-size,mailto-link,navigation-link \
 	         -w verbose test-output.html
 	touch $@
 test-output.html: converter.rb test-log.txt
