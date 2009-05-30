@@ -39,6 +39,18 @@ end
 
 
 
+describe Converter, 'converting a join message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    parsed_line = c.parsed_line_from_raw_line RAW_JOIN_MESSAGE
+    converted_line = c.converted_line_of_join_from_parsed_line parsed_line, 1
+    converted_line.should == '<li id="L1" class="join"><span class="time">01:09:27</span> <span class="nick">thinca</span> <span class="text">has joined</span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing a normal message without specials' do  #{{{1
   before do
     @parsed_line = Converter.new.parsed_line_from_raw_line RAW_MSG_MESSAGE_WITHOUT_SPECIALS

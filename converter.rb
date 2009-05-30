@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 
+require 'cgi'
+
+
+
+
 class Converter
   TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>'
-  TEMPLATE_JOIN_CONTENT = <<-'END'
-    <span class="time">%s</span>
-    <span class="nick">%s</span>
-    <span class="text">has joined</span>
-  END
+  TEMPLATE_JOIN_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has joined</span>'
   TEMPLATE_NICK_CONTENT = <<-'END'
     <span class="time">%s</span>
     <span class="text">
@@ -41,6 +42,17 @@ class Converter
     end
 
     yield generate_footer
+  end
+
+  def converted_line_of_join_from_parsed_line(parsed_line, line_number)
+    return TEMPLATE_LINE % [
+      line_number,
+      parsed_line[:type],
+      TEMPLATE_JOIN_CONTENT % [
+        parsed_line[:time],
+        sanitize(parsed_line[:nick])
+      ]
+    ]
   end
 
   def generate_header()
@@ -109,6 +121,10 @@ class Converter
     end
 
     return parsed_line
+  end
+
+  def sanitize(*args)
+    return CGI.escapeHTML *args
   end
 
   def usage()
