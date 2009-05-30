@@ -360,6 +360,18 @@ end
 
 
 
+describe Converter, 'converting an invalid message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RLINE_INVALID
+    cline = c.cline_of_invalid_from_pline pline, 10
+    cline.should == '<li id="L10" class="invalid"><span class="text">00:01:02 Invalid format</span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing another invalid message' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RLINE_INVALID2
@@ -371,6 +383,18 @@ describe Converter, 'parsing another invalid message' do  #{{{1
 
   it 'should have the original value' do
     @pline[:original].should == RLINE_INVALID2
+  end
+end
+
+
+
+
+describe Converter, 'converting another invalid message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RLINE_INVALID2
+    cline = c.cline_of_invalid_from_pline pline, 10
+    cline.should == '<li id="L10" class="invalid"><span class="text">Invalid format mk2</span></li>'
   end
 end
 

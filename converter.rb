@@ -12,9 +12,11 @@ require 'cgi'
 
 class Converter
   TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>'
+
+  TEMPLATE_INVALID_CONTENT = '<span class="text">%s</span>'
   TEMPLATE_JOIN_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has joined</span>'
-  TEMPLATE_NICK_CONTENT = '<span class="time">%s</span> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
   TEMPLATE_MSG_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">%s</span>'
+  TEMPLATE_NICK_CONTENT = '<span class="time">%s</span> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
   TEMPLATE_PART_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has left</span>'
   TEMPLATE_TOPIC_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
 
@@ -26,6 +28,16 @@ class Converter
     end
 
     yield generate_footer
+  end
+
+  def cline_of_invalid_from_pline(pline, line_number)
+    return TEMPLATE_LINE % [
+      line_number,
+      pline[:type],
+      TEMPLATE_INVALID_CONTENT % [
+        sanitize(pline[:original])
+      ]
+    ]
   end
 
   def cline_of_join_from_pline(pline, line_number)
