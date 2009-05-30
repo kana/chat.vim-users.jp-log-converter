@@ -14,19 +14,21 @@ require 'uri'
 class Converter
   TEMPLATE_LINE = '<li id="L%d" class="%s">%s</li>' + "\n"
 
-  TEMPLATE_INVALID_CONTENT = '<span class="text">%s</span>'
-  TEMPLATE_JOIN_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has joined</span>'
-  TEMPLATE_MSG_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">%s</span>'
-  TEMPLATE_NICK_CONTENT = '<span class="time">%s</span> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
-  TEMPLATE_PART_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has left</span>'
-  TEMPLATE_TOPIC_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
-  TEMPLATE_UNSUPPORTED_CONTENT = '<span class="time">%s</span> <span class="text">%s</span>'
+  TEMPLATE_INVALID_CONTENT = '<a class="text" href="#L%d" title="URI for the post #%d">%s</a>'
+  TEMPLATE_JOIN_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">has joined</span>'
+  TEMPLATE_MSG_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">%s</span>'
+  TEMPLATE_NICK_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="text"><span class="old-nick">%s</span> is now as known as <span class="new-nick">%s</span></span>'
+  TEMPLATE_PART_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">has left</span>'
+  TEMPLATE_TOPIC_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
+  TEMPLATE_UNSUPPORTED_CONTENT = '<a class="time" href="#L%d" title="URI for the post #%d">%s</a> <span class="text">%s</span>'
 
   def cline_of_invalid_from_pline(pline, line_number)
     return TEMPLATE_LINE % [
       line_number,
       pline[:type],
       TEMPLATE_INVALID_CONTENT % [
+        line_number,
+        line_number,
         sanitize(pline[:original])
       ]
     ]
@@ -37,6 +39,8 @@ class Converter
       line_number,
       pline[:type],
       TEMPLATE_JOIN_CONTENT % [
+        line_number,
+        line_number,
         pline[:time],
         sanitize(pline[:nick])
       ]
@@ -48,6 +52,8 @@ class Converter
       line_number,
       pline[:type],
       TEMPLATE_NICK_CONTENT % [
+        line_number,
+        line_number,
         pline[:time],
         sanitize(pline[:old_nick]),
         sanitize(pline[:new_nick])
@@ -60,6 +66,8 @@ class Converter
       line_number,
       pline[:type],
       TEMPLATE_MSG_CONTENT % [
+        line_number,
+        line_number,
         pline[:time],
         sanitize(pline[:nick]),
         make_neat_links_in(sanitize pline[:text]),
@@ -72,6 +80,8 @@ class Converter
       line_number,
       pline[:type],
       TEMPLATE_PART_CONTENT % [
+        line_number,
+        line_number,
         pline[:time],
         sanitize(pline[:nick]),
       ]
@@ -83,6 +93,8 @@ class Converter
       line_number,
       pline[:type],
       TEMPLATE_TOPIC_CONTENT % [
+        line_number,
+        line_number,
         pline[:time],
         sanitize(pline[:nick]),
         make_simple_links_in(sanitize pline[:topic]),
@@ -95,6 +107,8 @@ class Converter
       line_number,
       pline[:type],
       TEMPLATE_UNSUPPORTED_CONTENT % [
+        line_number,
+        line_number,
         pline[:time],
         sanitize(pline[:message])
       ]
