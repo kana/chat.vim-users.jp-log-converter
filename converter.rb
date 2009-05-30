@@ -2,7 +2,17 @@
 
 class Converter
   def convert(input_stream)
+    print generate_header
     puts 'dummy'
+    print generate_footer
+  end
+
+  def generate_header()
+    return "dummy header\n"
+  end
+
+  def generate_footer()
+    return "dummy footer\n"
   end
 
   def main(args)

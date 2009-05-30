@@ -1,5 +1,8 @@
 .....................................Usage: converter {YYYY-MM-DD} <{log.txt} >{log.html}
-...
+.dummy header
+dummy
+dummy footer
+..
 
 
 40 examples, 0 failures
