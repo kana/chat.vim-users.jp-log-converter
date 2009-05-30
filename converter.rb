@@ -19,11 +19,7 @@ class Converter
     <span class="nick">%s</span>
     <span class="text">%s</span>
   END
-  TEMPLATE_PART_CONTENT = <<-'END'
-    <span class="time">%s</span>
-    <span class="nick">%s</span>
-    <span class="text">has left</span>
-  END
+  TEMPLATE_PART_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has left</span>'
   TEMPLATE_TOPIC_CONTENT = <<-'END'
     <span class="time">%s</span>
     <span class="nick">%s</span>
@@ -61,6 +57,17 @@ class Converter
         pline[:time],
         sanitize(pline[:old_nick]),
         sanitize(pline[:new_nick])
+      ]
+    ]
+  end
+
+  def cline_of_part_from_pline(pline, line_number)
+    return TEMPLATE_LINE % [
+      line_number,
+      pline[:type],
+      TEMPLATE_PART_CONTENT % [
+        pline[:time],
+        sanitize(pline[:nick]),
       ]
     ]
   end

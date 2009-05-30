@@ -232,6 +232,18 @@ end
 
 
 
+describe Converter, 'converting a part message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_PART_MESSAGE
+    cline = c.cline_of_part_from_pline pline, 3
+    cline.should == '<li id="L3" class="part"><span class="time">20:02:15</span> <span class="nick">kana</span> <span class="text">has left</span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing a topic message' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline RAW_TOPIC_MESSAGE
