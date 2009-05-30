@@ -5,6 +5,8 @@ require 'converter'
 require 'stringio'
 
 
+RLINE_INVALID = '00:01:02 Invalid format'
+RLINE_INVALID2 = 'Invalid format mk2'
 RLINE_JOIN = '01:09:27 + thinca (thinca!i=3b9c8a56@gateway/web/ajax/mibbit.com/x-7370eae4604f8456) to #Vim-users.jp@freenode'
 RLINE_MSG_LINK_IMAGE = '03:22:04 <#Vim-users.jp@freenode:kana> http://gyazo.com/af8f793b7371a721bbb06059b8d3d5fe.png'
 RLINE_MSG_LINK_NORMAL = '03:17:35 <#Vim-users.jp@freenode:kana> よし寝る http://whileimautomaton.net/2009/05/29/02/37/54/diary'
@@ -14,8 +16,6 @@ RLINE_MSG_NORMAL2 = '14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみた�
 RLINE_NICK = '09:34:25 ukstudio -> ukstudio_aw'
 RLINE_PART = '20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")'
 RLINE_TOPIC = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
-RLINE_INVALID = '00:01:02 Invalid format'
-RLINE_INVALID2 = 'Invalid format mk2'
 
 
 
