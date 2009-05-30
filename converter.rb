@@ -55,6 +55,7 @@ class Converter
   end
 
   def cline_of_msg_from_pline(pline, line_number)
+    # FIXME: Expand each link in :text
     return TEMPLATE_LINE % [
       line_number,
       pline[:type],
@@ -78,6 +79,7 @@ class Converter
   end
 
   def cline_of_topic_from_pline(pline, line_number)
+    # FIXME: Expand each link in :topic
     return TEMPLATE_LINE % [
       line_number,
       pline[:type],
@@ -100,7 +102,7 @@ class Converter
     ]
   end
 
-  def convert(input_stream)
+  def convert(input_stream)  # FIXME: NIY
     yield generate_header
 
     input_stream.lines.each_with_index do |rline, line_number|
@@ -110,11 +112,11 @@ class Converter
     yield generate_footer
   end
 
-  def generate_header()
+  def generate_header()  # FIXME: NIY
     return "dummy header\n"
   end
 
-  def generate_footer()
+  def generate_footer()  # FIXME: NIY
     return "dummy footer\n"
   end
 
