@@ -55,14 +55,13 @@ class Converter
   end
 
   def cline_of_msg_from_pline(pline, line_number)
-    # FIXME: Expand each link in :text
     return TEMPLATE_LINE % [
       line_number,
       pline[:type],
       TEMPLATE_MSG_CONTENT % [
         pline[:time],
         sanitize(pline[:nick]),
-        sanitize(pline[:text]),
+        make_neat_links_in(sanitize pline[:text]),
       ]
     ]
   end
@@ -155,6 +154,10 @@ class Converter
     end
 
     return 0
+  end
+
+  def make_neat_links_in(sanitized_string)  # FIXME: NIY
+    return sanitized_string
   end
 
   def make_simple_links_in(sanitized_string)  # FIXME: NIY
