@@ -13,6 +13,7 @@ RLINE_MSG_LINK_NORMAL = '03:17:35 <#Vim-users.jp@freenode:kana> よし寝る htt
 RLINE_MSG_LINK_PASTE = '14:28:59 <#Vim-users.jp@freenode:Shougo> http://gist.github.com/119798'
 RLINE_MSG_NORMAL = '03:17:42 <#Vim-users.jp@freenode:kana> やることやった感'
 RLINE_MSG_NORMAL2 = '14:00:37 >#Vim-users.jp@freenode:from_kyushu< gyazoみたく簡単にできれば良いのだけども'
+RLINE_MSG_NORMAL3 = %q{00:01:02 <#Vim-users.jp@freenode:kana> &"<>'}
 RLINE_NICK = '09:34:25 ukstudio -> ukstudio_aw'
 RLINE_PART = '20:02:15 ! kana ("http://www.mibbit.com ajax IRC Client")'
 RLINE_TOPIC = '13:45:40 Topic of channel #Vim-users.jp@freenode by from_kyushu: ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.'
@@ -122,6 +123,43 @@ describe Converter, 'converting another normal message without specials' do  #{{
     pline = c.pline_from_rline RLINE_MSG_NORMAL2
     cline = c.cline_of_msg_from_pline pline, 6
     cline.should == '<li id="L6" class="msg"><span class="time">14:00:37</span> <span class="nick">from_kyushu</span> <span class="text">gyazoみたく簡単にできれば良いのだけども</span></li>'
+  end
+end
+
+
+
+
+describe Converter, 'parsing an evil message' do  #{{{1
+  before do
+    @pline = Converter.new.pline_from_rline RLINE_MSG_NORMAL3
+  end
+
+  it 'should have a valid type' do
+    @pline[:type].should == :msg
+  end
+
+  it 'should have a valid nick' do
+    @pline[:nick].should == 'kana'
+  end
+
+  it 'should have a valid time' do
+    @pline[:time].should == '00:01:02'
+  end
+
+  it 'should have a valid text' do
+    @pline[:text].should == "&\"<>'"
+  end
+end
+
+
+
+
+describe Converter, 'converting an evil message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RLINE_MSG_NORMAL3
+    cline = c.cline_of_msg_from_pline pline, 12
+    cline.should == %q{<li id="L12" class="msg"><span class="time">00:01:02</span> <span class="nick">kana</span> <span class="text">&amp;&quot;&lt;&gt;&apos;</span></li>}
   end
 end
 
