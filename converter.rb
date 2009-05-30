@@ -20,13 +20,7 @@ class Converter
     <span class="text">%s</span>
   END
   TEMPLATE_PART_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">has left</span>'
-  TEMPLATE_TOPIC_CONTENT = <<-'END'
-    <span class="time">%s</span>
-    <span class="nick">%s</span>
-    <span class="text">sets topic:
-      <span class="topic">%s</span>
-    </span>
-  END
+  TEMPLATE_TOPIC_CONTENT = '<span class="time">%s</span> <span class="nick">%s</span> <span class="text">sets topic: <span class="topic">%s</span></span>'
 
   def convert(input_stream)
     yield generate_header
@@ -68,6 +62,18 @@ class Converter
       TEMPLATE_PART_CONTENT % [
         pline[:time],
         sanitize(pline[:nick]),
+      ]
+    ]
+  end
+
+  def cline_of_topic_from_pline(pline, line_number)
+    return TEMPLATE_LINE % [
+      line_number,
+      pline[:type],
+      TEMPLATE_TOPIC_CONTENT % [
+        pline[:time],
+        sanitize(pline[:nick]),
+        sanitize(pline[:topic]),
       ]
     ]
   end

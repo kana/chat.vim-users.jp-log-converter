@@ -269,6 +269,18 @@ end
 
 
 
+describe Converter, 'converting a topic message' do  #{{{1
+  it 'should convert the line nicely' do
+    c = Converter.new
+    pline = c.pline_from_rline RAW_TOPIC_MESSAGE
+    cline = c.cline_of_topic_from_pline pline, 4
+    cline.should == '<li id="L4" class="topic"><span class="time">13:45:40</span> <span class="nick">from_kyushu</span> <span class="text">sets topic: <span class="topic">ログサーバを一時的に復帰 http://chat.vim-users.jp/ for true vim users and not true vim users.</span></span></li>'
+  end
+end
+
+
+
+
 describe Converter, 'parsing an invalid message' do  #{{{1
   before do
     @pline = Converter.new.pline_from_rline 'foo bar baz'
