@@ -105,7 +105,8 @@ class Converter
   def convert(input_stream)  # FIXME: NIY
     yield generate_header
 
-    input_stream.lines.each_with_index do |rline, line_number|
+    input_stream.lines.each_with_index do |rline, index|
+      line_number = index + 1
       yield "#{rline}#{line_number}\n"
     end
 
